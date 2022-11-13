@@ -1,6 +1,8 @@
-https://c-a-t-nust.github.io/about/index.html
 https://c-a-t-nust.github.io/p/d103d518.html
+https://c-a-t-nust.github.io/p/44961621.html
+https://c-a-t-nust.github.io/about/index.html
 https://c-a-t-nust.github.io/friends/index.html
 https://c-a-t-nust.github.io/
-https://c-a-t-nust.github.io/tags/%E5%8D%97%E4%BA%AC%E7%90%86%E5%B7%A5%E5%A4%A7%E5%AD%A6%E8%90%8C%E6%96%B0%E6%9D%AF2022/
+https://c-a-t-nust.github.io/tags/NUSTCTF/
+https://c-a-t-nust.github.io/tags/%E5%8D%97%E4%BA%AC%E7%90%86%E5%B7%A5%E5%A4%A7%E5%AD%A6%E8%90%8C%E6%96%B0%E6%9D%AF/
 https://c-a-t-nust.github.io/categories/Writeup/
